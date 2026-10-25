@@ -29,3 +29,12 @@
 - Build Verification:
   - Executed `npm run build` (`tsc && vite build`).
   - Result: Success, generated production bundle in `dist/`.
+
+## [2026-10-25 14:35:00] Shipping to GitHub & CI/CD Deployment
+- Task: Connect local repository to `https://github.com/smile-plzz/-The-Hustle-Untitled-Dhaka-Crime-Game-` and ship the completed build.
+- Exported initial GDD into permanent repository asset `GDD.md`.
+- Updated `vite.config.ts` with relative base path (`base: './'`) for GitHub Pages compatibility.
+- Added GitHub Actions workflow (`.github/workflows/deploy.yml`) for automatic testing, building, and deployment to GitHub Pages.
+- Updated `README.md` with live site link, architecture diagrams, and badges.
+- Ran test suite and production build: All 7 playthrough tests passed and build bundle generated cleanly.
+- Staged, committed, and pushed changes to remote `origin/main`.
