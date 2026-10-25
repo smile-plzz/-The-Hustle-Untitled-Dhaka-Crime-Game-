@@ -17,6 +17,7 @@ import { ArchiveScreen } from './components/ArchiveScreen';
 import { TimelineScreen } from './components/TimelineScreen';
 import { SourcesScreen } from './components/SourcesScreen';
 import { HelpScreen } from './components/HelpScreen';
+import { RelationshipsModal } from './components/RelationshipsModal';
 import { PauseMenu } from './components/PauseMenu';
 import { SaveLoadModal } from './components/SaveLoadModal';
 import { soundManager } from './components/SoundAtmosphere';
@@ -47,6 +48,7 @@ export const App: React.FC = () => {
   const [isTimelineOpen, setIsTimelineOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isRelationshipsOpen, setIsRelationshipsOpen] = useState(false);
   const [isPauseMenuOpen, setIsPauseMenuOpen] = useState(false);
   const [isSaveLoadOpen, setIsSaveLoadOpen] = useState(false);
 
@@ -87,6 +89,7 @@ export const App: React.FC = () => {
           isTimelineOpen ||
           isSourcesOpen ||
           isHelpOpen ||
+          isRelationshipsOpen ||
           isSaveLoadOpen ||
           isHistoryDrawerOpen
         ) {
@@ -94,6 +97,7 @@ export const App: React.FC = () => {
           setIsTimelineOpen(false);
           setIsSourcesOpen(false);
           setIsHelpOpen(false);
+          setIsRelationshipsOpen(false);
           setIsSaveLoadOpen(false);
           setIsHistoryDrawerOpen(false);
         } else {
@@ -108,6 +112,7 @@ export const App: React.FC = () => {
     isTimelineOpen,
     isSourcesOpen,
     isHelpOpen,
+    isRelationshipsOpen,
     isSaveLoadOpen,
     isHistoryDrawerOpen,
   ]);
@@ -153,6 +158,7 @@ export const App: React.FC = () => {
         onOpenArchive={() => setIsArchiveOpen(true)}
         onOpenTimeline={() => setIsTimelineOpen(true)}
         onOpenSources={() => setIsSourcesOpen(true)}
+        onOpenRelationships={() => setIsRelationshipsOpen(true)}
         isAudioActive={isAudioActive}
         onToggleAudio={handleToggleAudio}
       />
@@ -213,6 +219,13 @@ export const App: React.FC = () => {
       {/* Substance Abuse Support & Treatment Info */}
       {isHelpOpen && <HelpScreen onClose={() => setIsHelpOpen(false)} />}
 
+      {/* Relationships & Moral Memory Trajectory */}
+      <RelationshipsModal
+        state={gameState}
+        isOpen={isRelationshipsOpen}
+        onClose={() => setIsRelationshipsOpen(false)}
+      />
+
       {/* Pause Menu */}
       <PauseMenu
         isOpen={isPauseMenuOpen}
@@ -229,6 +242,10 @@ export const App: React.FC = () => {
         onOpenSources={() => {
           setIsPauseMenuOpen(false);
           setIsSourcesOpen(true);
+        }}
+        onOpenRelationships={() => {
+          setIsPauseMenuOpen(false);
+          setIsRelationshipsOpen(true);
         }}
         onOpenHelp={() => {
           setIsPauseMenuOpen(false);

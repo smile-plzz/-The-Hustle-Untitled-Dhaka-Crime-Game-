@@ -100,6 +100,29 @@ export interface SceneDefinition {
   };
 }
 
+export interface PsychologicalLedgerMetric {
+  label: string;
+  value: string;
+  statusClass?: 'safe' | 'warning' | 'danger' | 'redacted' | 'neutral';
+}
+
+export interface StageLedgerData {
+  stage: number;
+  amount: number;
+  text: string;
+  nextSceneId: string;
+  age: number;
+  metrics: PsychologicalLedgerMetric[];
+  unpaidCost?: string;
+}
+
+export interface RelationshipTrajectory {
+  character: 'Amena' | 'Noyon' | 'Reshma' | 'Kalam' | 'Babu' | 'Shirin';
+  stage: string;
+  status: string;
+  perception: string;
+}
+
 export interface GameState {
   stats: Stats;
   crew: CrewLoyalty;
@@ -107,12 +130,7 @@ export interface GameState {
   currentSceneId: string;
   preSceneNotice?: string;
   lastChoiceResult?: string;
-  stageLedger?: {
-    stage: number;
-    amount: number;
-    text: string;
-    nextSceneId: string;
-  };
+  stageLedger?: StageLedgerData;
   eraBanner?: {
     stage: number;
     text: string;

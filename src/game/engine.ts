@@ -2,6 +2,7 @@ import {
   GameState,
   EndingResult,
   CharacterLine,
+  RelationshipTrajectory,
 } from '../types';
 import { SCENES } from './storyData';
 
@@ -270,6 +271,218 @@ export function resolveEnding(state: GameState): EndingResult {
     coreText,
     characterLines,
   };
+}
+
+export function getRelationshipTrajectories(state: GameState): RelationshipTrajectory[] {
+  const { stats, flags, crew, currentSceneId } = state;
+  const stageNum = parseInt(currentSceneId.charAt(1), 10) || 1;
+
+  const trajectories: RelationshipTrajectory[] = [];
+
+  // 1. Amena
+  if (stageNum === 1) {
+    trajectories.push({
+      character: 'Amena',
+      stage: 'Stage 1 (Age 14)',
+      status: 'Pride & Relief',
+      perception: 'Hopes Rafiq will focus on his books and that the family can slowly recover from the factory disaster.',
+    });
+  } else if (stageNum === 2) {
+    trajectories.push({
+      character: 'Amena',
+      stage: 'Stage 2 (Age 16)',
+      status: stats.loyalty >= 70 ? 'Suspicion & Gratitude' : 'Growing Distrust',
+      perception: stats.loyalty >= 70
+        ? 'Accepts the debt relief and quiet house, but listens anxiously when he walks in late after dark.'
+        : 'Notices the quiet lies, the new shoes left by the door, and the questions from neighbours.',
+    });
+  } else if (stageNum === 3) {
+    trajectories.push({
+      character: 'Amena',
+      stage: 'Stage 3 (Age 18)',
+      status: flags.attemptedQuit ? 'Denial & Complicity' : 'Withdrawing Emotionally',
+      perception: 'Stands before the humming white refrigerator with factory dust on her fingers. She has stopped asking where the cash comes from.',
+    });
+  } else if (stageNum === 4) {
+    trajectories.push({
+      character: 'Amena',
+      stage: 'Stage 4 (Age 20-22)',
+      status: stats.loyalty >= 60 ? 'Unspoken Grief' : 'Emotional Severance',
+      perception: stats.loyalty >= 60
+        ? 'Still sets a plate for him every evening, even when he does not return for weeks.'
+        : 'The silence between them has hardened into a wall. She refuses to look at his hands.',
+    });
+  } else {
+    trajectories.push({
+      character: 'Amena',
+      stage: 'Stage 5 (Age 24-26)',
+      status: stats.loyalty >= 60 ? 'Grief & Vigil' : 'Severance',
+      perception: stats.loyalty >= 60
+        ? 'Writes to him once a year and keeps his childhood school notebooks in the metal trunk.'
+        : 'Amena no longer says his name aloud in the lane.',
+    });
+  }
+
+  // 2. Noyon
+  if (stageNum <= 2) {
+    trajectories.push({
+      character: 'Noyon',
+      stage: `Stage ${stageNum} (Age 14-16)`,
+      status: 'Childhood Brother',
+      perception: "Still calls him 'Rafi'. Remembers the broken football goalpost in Kalshi and copying his algebra homework.",
+    });
+  } else if (stageNum === 3) {
+    trajectories.push({
+      character: 'Noyon',
+      stage: 'Stage 3 (Age 18)',
+      status: 'Concerned Observer',
+      perception: "Sees Rafiq meeting Shuvo's men near Kamalapur. Warns him that thana lockups don't spare friends.",
+    });
+  } else if (stageNum === 4) {
+    trajectories.push({
+      character: 'Noyon',
+      stage: 'Stage 4 (Age 20-22)',
+      status: crew.noyon >= 90 ? 'The Last Conscience' : 'Participant with Doubts',
+      perception: crew.noyon >= 90
+        ? "Stands in the Jatrabari doorway whispering 'Rafi...'—refusing to let Rafiq forget who he was."
+        : 'Counts the highway delivery crates, but turns his face away when Kalam brings out the iron pipe.',
+    });
+  } else {
+    trajectories.push({
+      character: 'Noyon',
+      stage: 'Stage 5 (Age 24-26)',
+      status: flags.childrenProtected ? 'The Faithful Friend' : 'Broken Tether',
+      perception: flags.childrenProtected
+        ? 'The only one who visits. Remembers the quiet schoolboy before 2013.'
+        : "Brought the 12-year-old runner to the warehouse, then walked away into the rain.",
+    });
+  }
+
+  // 3. Reshma
+  if (stageNum < 4) {
+    trajectories.push({
+      character: 'Reshma',
+      stage: 'Not yet met',
+      status: 'Future Associate',
+      perception: 'Operating independent courier lines in Chattogram.',
+    });
+  } else if (flags.reshmaDefected) {
+    trajectories.push({
+      character: 'Reshma',
+      stage: `Stage ${stageNum}`,
+      status: 'Defected Rival',
+      perception: 'Carved out her own independent corridor in Bakalia, Chattogram. Never looked back.',
+    });
+  } else if (crew.reshma >= 50) {
+    trajectories.push({
+      character: 'Reshma',
+      stage: `Stage ${stageNum}`,
+      status: 'Strategic Partner',
+      perception: "Runs her own corner of Chattogram now. Respects performance and autonomy over sentimental loyalty.",
+    });
+  } else {
+    trajectories.push({
+      character: 'Reshma',
+      stage: `Stage ${stageNum}`,
+      status: 'Strained Subordinate',
+      perception: 'Stayed for the volume, but stopped talking. Watching for the first crack in Rafiq’s armor.',
+    });
+  }
+
+  // 4. Kalam
+  if (stageNum < 4) {
+    trajectories.push({
+      character: 'Kalam',
+      stage: 'Not yet met',
+      status: 'Serving Time',
+      perception: 'Incarcerated at Kashimpur Central Jail.',
+    });
+  } else if (flags.kalamViolence) {
+    trajectories.push({
+      character: 'Kalam',
+      stage: `Stage ${stageNum}`,
+      status: 'Entrenched Enforcer',
+      perception: "A dangerous convenience. Name entered into police files across two districts.",
+    });
+  } else {
+    trajectories.push({
+      character: 'Kalam',
+      stage: `Stage ${stageNum}`,
+      status: 'Restrained Muscle',
+      perception: 'Keeps the warehouse shutters closed without unnecessary blood.',
+    });
+  }
+
+  // 5. Babu
+  if (stageNum <= 2) {
+    trajectories.push({
+      character: 'Babu',
+      stage: `Stage ${stageNum} (Age 14-16)`,
+      status: 'Neighbourhood Fixer',
+      perception: 'Taught Rafiq the first quiet rules of the Mirpur lanes: small packets, known faces.',
+    });
+  } else if (flags.babuStatus === 'loyal') {
+    trajectories.push({
+      character: 'Babu',
+      stage: `Stage ${stageNum}`,
+      status: 'Older Brother in Shadows',
+      perception: 'Never forgot the 5,000 Tk bail Rafiq paid. Still sends quiet word through the tea stall.',
+    });
+  } else if (flags.babuStatus === 'owes') {
+    trajectories.push({
+      character: 'Babu',
+      stage: `Stage ${stageNum}`,
+      status: 'Distant Debtor',
+      perception: 'Keeps his distance, remembering the price Inspector Haque demanded to set him free.',
+    });
+  } else if (flags.babuStatus === 'gone') {
+    trajectories.push({
+      character: 'Babu',
+      stage: `Stage ${stageNum}`,
+      status: 'Vanished into the Sweeps',
+      perception: 'Nobody in Mirpur speaks his name after the 2018 anti-drug campaign sweeps.',
+    });
+  } else {
+    trajectories.push({
+      character: 'Babu',
+      stage: `Stage ${stageNum}`,
+      status: 'The Living Origin',
+      perception: "Asks Rafiq: 'Do you remember when 200 taka was enough?'",
+    });
+  }
+
+  // 6. Shirin (The Clean Touchstone)
+  if (stageNum === 1) {
+    trajectories.push({
+      character: 'Shirin',
+      stage: 'Stage 1 (Age 14)',
+      status: 'School Friend',
+      perception: 'Shared algebra notes across classroom desks. Believed Rafiq would become an engineer.',
+    });
+  } else if (stageNum === 2) {
+    trajectories.push({
+      character: 'Shirin',
+      stage: 'Stage 2 (Age 16)',
+      status: 'The Coaching Centre Alleys',
+      perception: 'A quiet glance near the rickshaw stand. Notices Rafiq is no longer attending tuition batches.',
+    });
+  } else if (stageNum === 3) {
+    trajectories.push({
+      character: 'Shirin',
+      stage: 'Stage 3 (Age 18)',
+      status: 'The Unread SMS',
+      perception: 'Sent a message asking if he took the university admission exam. Rafiq deleted the thread.',
+    });
+  } else {
+    trajectories.push({
+      character: 'Shirin',
+      stage: `Stage ${stageNum} (Age 20-26)`,
+      status: 'The Life Discarded',
+      perception: 'Became a teacher in Sylhet. Represents the uncorrupted life Rafiq traded for 100-taka packets.',
+    });
+  }
+
+  return trajectories;
 }
 
 export function enterScene(state: GameState, sceneId: string): GameState {

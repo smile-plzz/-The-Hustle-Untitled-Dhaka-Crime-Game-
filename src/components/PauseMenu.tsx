@@ -11,6 +11,7 @@ import {
   VolumeX,
   Tv,
   X,
+  Users,
 } from 'lucide-react';
 
 interface PauseMenuProps {
@@ -20,6 +21,7 @@ interface PauseMenuProps {
   onOpenArchive: () => void;
   onOpenTimeline: () => void;
   onOpenSources: () => void;
+  onOpenRelationships: () => void;
   onOpenHelp: () => void;
   onRestart: () => void;
   isAudioActive: boolean;
@@ -35,6 +37,7 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
   onOpenArchive,
   onOpenTimeline,
   onOpenSources,
+  onOpenRelationships,
   onOpenHelp,
   onRestart,
   isAudioActive,
@@ -76,6 +79,11 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
           <button onClick={onOpenTimeline} className="pause-btn">
             <Clock size={18} />
             <span>2013–2025 Dual Timeline</span>
+          </button>
+
+          <button onClick={onOpenRelationships} className="pause-btn">
+            <Users size={18} />
+            <span>Relationships & Moral Memory</span>
           </button>
 
           <button onClick={onOpenSources} className="pause-btn">

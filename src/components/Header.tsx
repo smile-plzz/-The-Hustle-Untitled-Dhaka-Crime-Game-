@@ -18,6 +18,7 @@ interface HeaderProps {
   onOpenArchive: () => void;
   onOpenTimeline: () => void;
   onOpenSources: () => void;
+  onOpenRelationships: () => void;
   isAudioActive: boolean;
   onToggleAudio: () => void;
 }
@@ -28,6 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenArchive,
   onOpenTimeline,
   onOpenSources,
+  onOpenRelationships,
   isAudioActive,
   onToggleAudio,
 }) => {
@@ -54,6 +56,11 @@ export const Header: React.FC<HeaderProps> = ({
           <button onClick={onOpenTimeline} className="btn-icon" title="Timeline">
             <Clock size={16} />
             <span className="btn-label-desktop">Timeline</span>
+          </button>
+
+          <button onClick={onOpenRelationships} className="btn-icon" title="Relationships & Moral Memory">
+            <Users size={16} />
+            <span className="btn-label-desktop">Relationships</span>
           </button>
 
           <button onClick={onOpenArchive} className="btn-icon" title="Historical Archive">

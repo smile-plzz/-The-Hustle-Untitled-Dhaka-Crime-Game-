@@ -1,4 +1,4 @@
-import { SceneDefinition } from '../types';
+import { SceneDefinition, StageLedgerData } from '../types';
 
 export const ERA_BANNERS: Record<number, { text: string }> = {
   1: { text: 'Mirpur, Dhaka. 2013. Rafiq is 14.' },
@@ -21,7 +21,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-01',
     archiveIds: ['A-02'],
     getSetupText: () =>
-      'Two weeks after the Savar factory collapse, every garment-worker household in the lane is on edge. Rafiq\'s father was hurt in a workshop accident and cannot work. The hospital wants 15,000 taka. Amena stands in the doorway with her factory ID still around her neck and asks Rafiq if he can think of anything.',
+      "Two weeks after the Savar garment complex collapse, every garment-worker household in the Mirpur lane is on edge. Rafiq's father was crushed in a lathe workshop accident and cannot work. The hospital wants 15,000 taka. Amena stands in the doorway, smelling of sewing machine oil, her factory ID still pinned to her cotton kameez, and asks Rafiq if he can think of anything. Rafiq is fourteen, good at math, and had his algebra notebook open on the wooden trunk.",
     choices: [
       {
         key: 'A',
@@ -68,7 +68,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur-1',
     factTag: 'fictional',
     getSetupText: () =>
-      'Babu, two years older and always near the tea stalls, notices Rafiq\'s face. He offers 200 taka to carry a small package to a shop three lanes away. No questions asked.',
+      "Babu, two years older and always near the tea stalls, notices Rafiq's haunted face. In the lane, Shirin and two schoolgirls walk past with heavy backpacks, talking about coaching exams. Babu taps Rafiq on the shoulder and offers 200 taka to carry a small wrapped parcel three lanes away to a mechanic shop. No questions asked.",
     choices: [
       {
         key: 'A',
@@ -117,7 +117,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur-1',
     factTag: 'fictional',
     getSetupText: () =>
-      'The hospital sends a final notice. Babu is at the door with a bigger offer: 500 taka. There is one choice.',
+      'The hospital sends a final red notice. The medicine shop cuts off their credit. Babu is at the door with a bigger offer: 500 taka. There is one choice.',
     choices: [
       {
         key: 'A',
@@ -150,7 +150,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'Rafiq holds more cash than he has ever held. It is more than Amena earns in a week at the factory.',
+      "Rafiq holds the crisp currency notes in his pocket. It is more than Amena earns in a brutal week of factory overtime. On the desk sits his school geometry box with the rusted compass.",
     choices: [
       {
         key: 'A',
@@ -225,7 +225,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'fictional',
     archiveIds: ['A-04'],
     getSetupText: () =>
-      'Babu teaches Rafiq the rules of the lane: small amounts, familiar faces, never near the school gate. Weed sells in lots of 100 to 200 taka. Rafiq\'s first customers are older boys from the next lane.',
+      "Babu teaches Rafiq the quiet rules of the lane: small amounts, familiar faces, never near the school gate. Weed sells in lots of 100 to 200 taka. Noyon, kicking a bald football against a brick wall, calls out 'Rafi, coach is calling!' but Rafiq turns his back towards the tea stall. His first buyers are older boys from the next lane.",
     choices: [
       {
         key: 'A',
@@ -273,7 +273,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'Tanvir from class 10 is in trouble at home. He asks Rafiq to let him take a small amount on credit and swears he will pay by the end of the month.',
+      "Tanvir from class 10 is shaking at the edge of the alley. His elder brother was beaten by loan sharks. He begs Rafiq to let him take a small packet on credit and swears on his mother's head he will pay by month-end. In the distance, Shirin walks past the library.",
     choices: [
       {
         key: 'A',
@@ -353,7 +353,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       return { state };
     },
     getSetupText: () =>
-      'A shopkeeper who knows Amena sees a hand-off near his stall and starts walking over.',
+      "A shopkeeper who knows Amena sees a hand-off near his stall and starts walking over, wiping flour off his apron.",
     choices: [
       {
         key: 'A',
@@ -402,7 +402,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-02',
     archiveIds: ['A-01'],
     getSetupText: () =>
-      'Two older men ask Babu for dyl, the codeine cough syrup that was everywhere when they were young. Babu can get it. He looks at Rafiq to see whether Rafiq will carry it too.',
+      "Two older men ask Babu for dyl, the codeine cough syrup that was everywhere when they were young. Babu can get it across the northern border. He looks at Rafiq to see whether Rafiq will carry it too: 'People want it anyway, Rafiq. If we don't bring it, someone else will.'",
     choices: [
       {
         key: 'A',
@@ -451,51 +451,73 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'Amena notices the new shoes and the new calm in Rafiq\'s face and asks where the money is coming from.',
+      "Amena notices the clean leather Bata shoes by the threshold and the new quiet calm in Rafiq's eyes. On the clay stove, the tea boils over. She asks quietly where the money is coming from.",
     choices: [
       {
         key: 'A',
         label: 'Lie: a part-time job at a shop',
         resultText: 'She lets it go, and he sees that it costs her something.',
-        execute: (state) => ({
-          state: {
-            ...state,
-            stats: {
-              ...state.stats,
-              loyalty: Math.min(100, Math.max(0, state.stats.loyalty - 10)),
+        execute: (state) => {
+          const ledger: StageLedgerData = {
+            stage: 2,
+            amount: 4000,
+            age: 16,
+            text: 'The hospital debt is paid. Nobody says where the last of it came from.',
+            nextSceneId: 'S3-1',
+            metrics: [
+              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
+              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
+              { label: 'AMENA', value: 'SUSPICIOUS', statusClass: 'warning' },
+              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+            ],
+          };
+          return {
+            state: {
+              ...state,
+              stats: {
+                ...state.stats,
+                loyalty: Math.min(100, Math.max(0, state.stats.loyalty - 10)),
+              },
+              stageLedger: ledger,
             },
-            stageLedger: {
-              stage: 2,
-              amount: 4000,
-              text: 'The hospital debt is paid. Nobody says where the last of it came from.',
-              nextSceneId: 'S3-1',
-            },
-          },
-          resultText: 'She lets it go, and he sees that it costs her something.',
-          nextSceneId: 'S3-1',
-        }),
+            resultText: 'She lets it go, and he sees that it costs her something.',
+            nextSceneId: 'S3-1',
+          };
+        },
       },
       {
         key: 'B',
         label: 'Half-truth: I help Babu with deliveries',
         resultText: 'She hears what she needs to hear.',
-        execute: (state) => ({
-          state: {
-            ...state,
-            stats: {
-              ...state.stats,
-              loyalty: Math.min(100, Math.max(0, state.stats.loyalty - 5)),
+        execute: (state) => {
+          const ledger: StageLedgerData = {
+            stage: 2,
+            amount: 4000,
+            age: 16,
+            text: 'The hospital debt is paid. Nobody says where the last of it came from.',
+            nextSceneId: 'S3-1',
+            metrics: [
+              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
+              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
+              { label: 'AMENA', value: 'SUSPICIOUS', statusClass: 'warning' },
+              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+            ],
+          };
+          return {
+            state: {
+              ...state,
+              stats: {
+                ...state.stats,
+                loyalty: Math.min(100, Math.max(0, state.stats.loyalty - 5)),
+              },
+              stageLedger: ledger,
             },
-            stageLedger: {
-              stage: 2,
-              amount: 4000,
-              text: 'The hospital debt is paid. Nobody says where the last of it came from.',
-              nextSceneId: 'S3-1',
-            },
-          },
-          resultText: 'She hears what she needs to hear.',
-          nextSceneId: 'S3-1',
-        }),
+            resultText: 'She hears what she needs to hear.',
+            nextSceneId: 'S3-1',
+          };
+        },
       },
       {
         key: 'C',
@@ -506,6 +528,20 @@ export const SCENES: Record<string, SceneDefinition> = {
             ? 'She is silent for a long time, then takes his hand.'
             : 'She stands up and leaves the room without a word.';
           const loyaltyDelta = moralEnough ? 20 : -20;
+          const ledger: StageLedgerData = {
+            stage: 2,
+            amount: 4000,
+            age: 16,
+            text: 'The hospital debt is paid. Nobody says where the last of it came from.',
+            nextSceneId: 'S3-1',
+            metrics: [
+              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
+              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
+              { label: 'AMENA', value: moralEnough ? 'AWARE & HURT' : 'WITHDRAWN', statusClass: 'warning' },
+              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+            ],
+          };
           return {
             state: {
               ...state,
@@ -514,12 +550,7 @@ export const SCENES: Record<string, SceneDefinition> = {
                 loyalty: Math.min(100, Math.max(0, state.stats.loyalty + loyaltyDelta)),
                 morality: Math.min(100, Math.max(0, state.stats.morality + 10)),
               },
-              stageLedger: {
-                stage: 2,
-                amount: 4000,
-                text: 'The hospital debt is paid. Nobody says where the last of it came from.',
-                nextSceneId: 'S3-1',
-              },
+              stageLedger: ledger,
             },
             resultText,
             nextSceneId: 'S3-1',
@@ -541,7 +572,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-03',
     archiveIds: ['A-03', 'A-05'],
     getSetupText: () =>
-      'The news is full of refugees on the south-east border and of yaba. Babu takes Rafiq across the city, past Kamalapur station, to meet Shuvo, who runs the pill trade on this side of Jatrabari and likes good boys from Mirpur. Shuvo offers Rafiq a place as a sub-distributor.',
+      "The newspapers are full of refugees across the south-east border and pink tablets named yaba. Babu takes Rafiq across town past Kamalapur station to meet Shuvo on the Dhalpur side of Jatrabari. Shuvo sips sweet cha and sizes up Rafiq: 'A boy who knows arithmetic and keeps his mouth shut.' He offers Rafiq a sub-distributor role moving pills into Mirpur.",
     choices: [
       {
         key: 'A',
@@ -692,7 +723,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'Rafiq spends three nights at the thana. Amena pays a bail she cannot afford.',
+      'Rafiq spends three nights at the thana. Amena pays a bail she cannot afford with money borrowed from factory coworkers.',
     autoContinue: {
       buttonLabel: 'Continue',
       nextSceneId: () => 'S3-3',
@@ -728,7 +759,7 @@ export const SCENES: Record<string, SceneDefinition> = {
         state.flags.trade === 'yaba'
           ? 'a small plastic packet of pink tablets'
           : 'a folded paper of dry leaves';
-      return `Amena finds packaging in Rafiq's bag: ${packet}. She holds it up and says nothing.`;
+      return `Amena finds packaging deep inside Rafiq's satchel, tucked under his old school geometry set: ${packet}. She holds it between thumb and forefinger as if it were burning coal, and says nothing.`;
     },
     choices: [
       {
@@ -799,7 +830,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'real',
     archiveIds: ['A-07'],
     getSetupText: () =>
-      'Babu is picked up in a sweep of the Mirpur lanes. He sends word from the thana: bail is 5,000 taka, or someone has to speak to Haque.',
+      'Babu is picked up in a sweep of the Mirpur lanes. He sends word from the thana: bail is 5,000 taka, or someone has to speak to Haque. Babu whispers to the courier: "Tell him to remember when 200 taka was enough."',
     choices: [
       {
         key: 'A',
@@ -882,7 +913,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-05',
     archiveIds: ['A-08'],
     getSetupText: () =>
-      'Parliament has passed a new narcotics law. Yaba is now Class A and 200 grams or more can mean death or life in prison. It takes effect on 27 December. Rafiq counts his money alone in his room.',
+      "Parliament passes the Narcotics Control Act 2018: 200 grams of yaba now carries death or life in prison. With his earnings, Rafiq replaces the leaking clay water pot and buys a new white Walton refrigerator for the kitchen. He tells himself: 'I am taking care of my mother.' Amena stands before the humming appliance with grey factory lint on her fingers, looking at it as though it were a corpse in the room. Rafiq counts his cash alone by the lamp.",
     reflectionText: (state) =>
       state.stats.morality >= 50
         ? 'He thinks of Amena at the door and his hands are not steady.'
@@ -895,21 +926,31 @@ export const SCENES: Record<string, SceneDefinition> = {
         if (state.flags.attemptedQuit) {
           baseAmount = Math.floor(baseAmount * 0.75);
         }
+        const updatedTotal = state.stats.money + baseAmount;
+        const ledger: StageLedgerData = {
+          stage: 3,
+          amount: baseAmount,
+          age: 18,
+          text:
+            state.flags.trade === 'yaba'
+              ? state.flags.attemptedQuit
+                ? 'Yaba earnings curtailed by promises made to Amena.'
+                : 'Yaba distribution in Jatrabari and Mirpur yields real profit.'
+              : state.flags.attemptedQuit
+              ? 'Weed sales curtailed by Rafiq holding back.'
+              : 'Steady weed trade across quiet Mirpur lanes.',
+          nextSceneId: 'S4-1',
+          metrics: [
+            { label: 'CASH', value: `৳${updatedTotal.toLocaleString()}`, statusClass: 'neutral' },
+            { label: 'TRADE', value: state.flags.trade.toUpperCase(), statusClass: state.flags.trade === 'yaba' ? 'danger' : 'warning' },
+            { label: 'AMENA', value: 'WITHDRAWN (THE REFRIGERATOR HUMS)', statusClass: 'warning' },
+            { label: 'POLICE', value: state.flags.haqueOwnsYou ? 'HAQUE HOLDS LEVERAGE' : 'PATROLS ACTIVE', statusClass: 'danger' },
+            { label: 'BABU', value: state.flags.babuStatus.toUpperCase(), statusClass: 'neutral' },
+          ],
+        };
         return {
           ...state,
-          stageLedger: {
-            stage: 3,
-            amount: baseAmount,
-            text:
-              state.flags.trade === 'yaba'
-                ? state.flags.attemptedQuit
-                  ? 'Yaba earnings curtailed by promises made to Amena.'
-                  : 'Yaba distribution in Jatrabari and Mirpur yields real profit.'
-                : state.flags.attemptedQuit
-                ? 'Weed sales curtailed by Rafiq holding back.'
-                : 'Steady weed trade across quiet Mirpur lanes.',
-            nextSceneId: 'S4-1',
-          },
+          stageLedger: ledger,
         };
       },
     },
@@ -929,9 +970,9 @@ export const SCENES: Record<string, SceneDefinition> = {
     getSetupText: (state) => {
       const babuLine =
         state.flags.babuStatus === 'loyal' || state.flags.babuStatus === 'owes'
-          ? 'Babu stands by the door.'
-          : 'the doorway is empty and nobody mentions it.';
-      return `Rafiq rents a corner of a warehouse. Noyon arrives first. Then Reshma, sharp and quick with numbers, who knows who to ask. Then Kalam, older, silent, recently out of jail. If anyone looks, ${babuLine}`;
+          ? 'Babu stands by the door with a cigarette.'
+          : 'the doorway is empty and nobody mentions his name.';
+      return `Rafiq rents the back half of a warehouse in Jatrabari off the highway. Noyon arrives first, carrying tea and looking at the steel shutters. Then Reshma, sharp and quick with numbers, carrying a ledger of highway delivery timings. Then Kalam, older, silent, scars on his knuckles from Kashimpur jail. In the doorway, ${babuLine} Noyon looks at the money crates, looks at Rafiq, and murmurs under his breath: 'Rafi...'`;
     },
     autoContinue: {
       buttonLabel: 'Continue',
@@ -956,7 +997,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Chattogram',
     factTag: 'fictional',
     getSetupText: () =>
-      'Reshma wants to open a new neighbourhood in Chattogram without Rafiq watching every step. She says the profit will be big. She does not say what happens if it goes wrong.',
+      "Reshma spreads a transit map of Chattogram's Bakalia district across the table. 'Why funnel every single consignment through Dhaka when Bakalia can stand on its own?' she asks. 'You calculate risk, Rafiq. I calculate opportunity.' She waits to see if he treats her as a genuine partner or merely as hired labor.",
     choices: [
       {
         key: 'A',
@@ -1031,7 +1072,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-07',
     archiveIds: ['A-10'],
     getSetupText: () =>
-      'On television, more than a hundred yaba godfathers file onto a stage in Teknaf to surrender before the Home Minister. Shuvo calls Rafiq the same night. Nothing has changed, he says, except the price of staying in business.',
+      "On the small CRT television in the tea stall, more than a hundred yaba godfathers file onto a ceremonial stage in Teknaf to surrender before the Home Minister. That midnight, Shuvo calls. 'The big men gave up their names so the small men can pay double,' he rasps. 'Nothing has changed on the highway, Rafiq, except the price of breathing.'",
     choices: [
       {
         key: 'A',
@@ -1143,7 +1184,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-08',
     archiveIds: ['A-11'],
     getSetupText: () =>
-      'COVID-19 closes the country. Police are pulled to other duties. In the lanes the sellers are back out and a pill goes for 250 to 300 taka. Noyon says half the lane has nothing to eat.',
+      "COVID-19 closes the country. Police are pulled to quarantine checkpoints and relief lines. In the alleys, a tablet sells for 250 to 300 taka. But half of Mirpur is starving without daily wage work. Noyon says: 'The rickshaw pullers have nothing to feed their children, Rafi. What good is all this money if we just watch them starve?'",
     choices: [
       {
         key: 'A',
@@ -1224,7 +1265,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-09',
     archiveIds: ['A-12'],
     getSetupText: () =>
-      'A week after the news from the Shamlapur checkpoint, one of the dealers in Rafiq\'s chain is caught skimming. Kalam offers to deal with it his own way. The papers are full of the word gunfight.',
+      "One week after Major Sinha is shot dead at the Shamlapur checkpoint and the word gunfight dominates every headline, a carrier in Rafiq's network is caught skimming. Noyon pleads: 'We should talk to his father, Rafi. You didn't use to solve problems like this.' Kalam casually leans an iron rod against the wooden bench: 'Why make it complicated? One afternoon in the back of a microbus and the entire highway stays honest.'",
     choices: [
       {
         key: 'A',
@@ -1286,7 +1327,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'Two years pass in a blur of ledgers and lanes. Rafiq is 22, owns three phones and has one real friend. A decision is waiting.',
+      'Two years pass in a blur of ledgers, police envelopes, and highway fuel receipts. Rafiq is 22, owns three phones, and has one real friend who barely speaks. A fork in the road is waiting.',
     choices: [
       {
         key: 'A',
@@ -1294,6 +1335,25 @@ export const SCENES: Record<string, SceneDefinition> = {
         resultText: 'Every lane answers to him now. None of them like it.',
         execute: (state) => {
           const gain = state.flags.trade === 'yaba' ? 30000 : 10000;
+          const ledgerAmount = state.flags.trade === 'yaba' ? 45000 : 15000;
+          const ledger: StageLedgerData = {
+            stage: 4,
+            amount: ledgerAmount,
+            age: 22,
+            text:
+              state.flags.trade === 'yaba'
+                ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
+                : 'Weed distribution across major Dhaka hubs generates consistent income.',
+            nextSceneId: 'S5-1',
+            metrics: [
+              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
+              { label: 'SUPPLIERS', value: '3 HIGHWAY DEPOTS', statusClass: 'neutral' },
+              { label: 'CREW', value: '17 ACTIVE RUNNERS', statusClass: 'neutral' },
+              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'EXPANDING', statusClass: state.flags.reshmaDefected ? 'danger' : 'warning' },
+              { label: 'NOYON', value: 'DISTANT (SILENT)', statusClass: 'warning' },
+              { label: 'KALAM', value: 'USEFUL', statusClass: 'danger' },
+            ],
+          };
           return {
             state: {
               ...state,
@@ -1306,15 +1366,7 @@ export const SCENES: Record<string, SceneDefinition> = {
                 ...state.flags,
                 path: 'control',
               },
-              stageLedger: {
-                stage: 4,
-                amount: state.flags.trade === 'yaba' ? 45000 : 15000,
-                text:
-                  state.flags.trade === 'yaba'
-                    ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
-                    : 'Weed distribution across major Dhaka hubs generates consistent income.',
-                nextSceneId: 'S5-1',
-              },
+              stageLedger: ledger,
             },
             resultText: 'Every lane answers to him now. None of them like it.',
             nextSceneId: 'S5-1',
@@ -1325,57 +1377,83 @@ export const SCENES: Record<string, SceneDefinition> = {
         key: 'B',
         label: 'Move quietly into legitimate shop fronts',
         resultText: 'A ledger with clean pages, for the first time.',
-        execute: (state) => ({
-          state: {
-            ...state,
-            stats: {
-              ...state.stats,
-              money: state.stats.money + 5000,
-              heat: Math.min(100, Math.max(0, state.stats.heat - 10)),
-              morality: Math.min(100, Math.max(0, state.stats.morality + 5)),
+        execute: (state) => {
+          const ledgerAmount = state.flags.trade === 'yaba' ? 45000 : 15000;
+          const ledger: StageLedgerData = {
+            stage: 4,
+            amount: ledgerAmount,
+            age: 22,
+            text:
+              state.flags.trade === 'yaba'
+                ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
+                : 'Weed distribution across major Dhaka hubs generates consistent income.',
+            nextSceneId: 'S5-1',
+            metrics: [
+              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
+              { label: 'SUPPLIERS', value: 'DISGUISED THROUGH FRONTS', statusClass: 'safe' },
+              { label: 'CREW', value: '17 ACTIVE RUNNERS', statusClass: 'neutral' },
+              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'MANAGING STORES', statusClass: 'neutral' },
+              { label: 'NOYON', value: 'DISTANT', statusClass: 'warning' },
+              { label: 'KALAM', value: 'RESTRAINED', statusClass: 'safe' },
+            ],
+          };
+          return {
+            state: {
+              ...state,
+              stats: {
+                ...state.stats,
+                money: state.stats.money + 5000,
+                heat: Math.min(100, Math.max(0, state.stats.heat - 10)),
+                morality: Math.min(100, Math.max(0, state.stats.morality + 5)),
+              },
+              flags: {
+                ...state.flags,
+                path: 'fronts',
+              },
+              stageLedger: ledger,
             },
-            flags: {
-              ...state.flags,
-              path: 'fronts',
-            },
-            stageLedger: {
-              stage: 4,
-              amount: state.flags.trade === 'yaba' ? 45000 : 15000,
-              text:
-                state.flags.trade === 'yaba'
-                  ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
-                  : 'Weed distribution across major Dhaka hubs generates consistent income.',
-              nextSceneId: 'S5-1',
-            },
-          },
-          resultText: 'A ledger with clean pages, for the first time.',
-          nextSceneId: 'S5-1',
-        }),
+            resultText: 'A ledger with clean pages, for the first time.',
+            nextSceneId: 'S5-1',
+          };
+        },
       },
       {
         key: 'C',
         label: 'Hold the balance',
         resultText: 'Nothing changes, and he knows that is a choice too.',
-        execute: (state) => ({
-          state: {
-            ...state,
-            flags: {
-              ...state.flags,
-              path: 'drift',
+        execute: (state) => {
+          const ledgerAmount = state.flags.trade === 'yaba' ? 45000 : 15000;
+          const ledger: StageLedgerData = {
+            stage: 4,
+            amount: ledgerAmount,
+            age: 22,
+            text:
+              state.flags.trade === 'yaba'
+                ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
+                : 'Weed distribution across major Dhaka hubs generates consistent income.',
+            nextSceneId: 'S5-1',
+            metrics: [
+              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
+              { label: 'SUPPLIERS', value: 'UNSTABLE', statusClass: 'warning' },
+              { label: 'CREW', value: '17 RUNNERS', statusClass: 'neutral' },
+              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'RESTLESS', statusClass: 'warning' },
+              { label: 'NOYON', value: 'TIRED', statusClass: 'warning' },
+              { label: 'KALAM', value: 'WATCHING', statusClass: 'danger' },
+            ],
+          };
+          return {
+            state: {
+              ...state,
+              flags: {
+                ...state.flags,
+                path: 'drift',
+              },
+              stageLedger: ledger,
             },
-            stageLedger: {
-              stage: 4,
-              amount: state.flags.trade === 'yaba' ? 45000 : 15000,
-              text:
-                state.flags.trade === 'yaba'
-                  ? 'Highway supply network across Chattogram and Dhaka pays massive returns.'
-                  : 'Weed distribution across major Dhaka hubs generates consistent income.',
-              nextSceneId: 'S5-1',
-            },
-          },
-          resultText: 'Nothing changes, and he knows that is a choice too.',
-          nextSceneId: 'S5-1',
-        }),
+            resultText: 'Nothing changes, and he knows that is a choice too.',
+            nextSceneId: 'S5-1',
+          };
+        },
       },
     ],
   },
@@ -1392,7 +1470,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-10',
     archiveIds: ['A-13'],
     getSetupText: () =>
-      'After the political upheaval of August, many police stations stand half empty. Dealers tell reporters the trade is flowing. Haque calls. He can tell Rafiq what he hears, for a price.',
+      "Following the August 2024 political upheaval, police stations across Dhaka stand burned or half-empty. Traffic police are gone; student volunteers manage intersections in helmets. In the shadows, the drug lines run wide open, and crystal meth ('ice') floods the vacant supply chain. Inspector Haque calls on an encrypted burner, his voice exhausted and predatory: 'The uniform is off for now, Rafiq. But the files never burn.'",
     choices: [
       {
         key: 'A',
@@ -1472,7 +1550,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-11',
     archiveIds: ['A-14'],
     getSetupText: () =>
-      'Noyon brings a boy of about twelve to the warehouse. The boy has been running errands for one of Rafiq\'s sellers. Noyon cannot look at Rafiq.',
+      "Noyon brings a twelve-year-old boy in a torn school shirt to the warehouse door. The boy is clutching a parcel of pink tablets behind his back, shivering. Rafiq looks at him and asks: 'How old are you?' The boy whispers: 'Twelve.' The room falls into dead silence. Rafiq was twelve when his father was crushed in the workshop and the debt began. Noyon stands in the doorway, staring straight through Rafiq: 'Look at him, Rafi. Look at who you became.'",
     choices: [
       {
         key: 'A',
@@ -1548,7 +1626,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'real',
     tickerId: 'T-12',
     getSetupText: () =>
-      'Someone is at the door at night. It could be Haque, the Navy, a rival or Amena. Rafiq has a bag of money by the door and an unread message from his mother.',
+      "November 2025. A rented, humid room near Shah Amanat Bridge in Chattogram. The highway hums outside in the dark. Beside the bed sits a duffel bag of bank packets and an unread SMS from an old number in Mirpur. Footsteps pause on the wooden landing outside. A slow, heavy knock echoes through the door.",
     choices: [
       {
         key: 'A',

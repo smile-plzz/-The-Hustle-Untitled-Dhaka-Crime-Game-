@@ -50,3 +50,22 @@
   - Babu: Living connection to Stage 1 ("Remember when ৳200 was enough?").
   - Clean Relationship: Uncorrupted touchstone from outside the trade.
 - Planned psychological evolution of the Ledger interface across ages 14, 18, 22, and 26.
+
+## [2026-10-25 15:05:00] Implementation of Phase 1: Emotional Foundations & Psychological Ledger
+- Enriched all scene scripts across Stages 1–5 in `src/game/storyData.ts` with canonical micro-moments:
+  - S1-1 & S1-2: Lathe workshop accident context, Shirin passing with school backpacks, algebra notebook.
+  - S2-1 & S2-2: Noyon calling out childhood nickname "Rafi" while kicking a bald football in Kalshi; Tanvir's desperation.
+  - S2-5: Leather shoes by the threshold, boiling clay stove, and Stage 2 Psychological Ledger breakdown.
+  - S3-1 & S3-3: Shuvo's sizing up of Rafiq's arithmetic skills; Amena finding pills under the geometry set.
+  - S3-5: The Walton Refrigerator scene (Rafiq's rationalization of filial care vs. Amena's grief-stricken gaze).
+  - S4-1: Noyon's quiet whisper "Rafi..." in the Jatrabari depot among hardened enforcers.
+  - S4-2: Reshma's alternative philosophy (Opportunity vs. Risk, Partner vs. Laborer).
+  - S4-4 & S4-5: COVID starvation in Mirpur and Kalam's seductive convenience ("Why make it complicated?").
+  - S4-6: Stage 4 Psychological Ledger with redacted cash metrics (`৳██████`).
+  - S5-1: August 2024 political upheaval, burned thanas, student traffic controllers, and Haque's burner call.
+  - S5-2: The 12-year-old runner confrontation ("How old are you?" / "Twelve" / "Look at who you became, Rafi").
+  - S5-3: Shah Amanat Bridge quiet rented room, unread SMS, and the final knock.
+- Created `RelationshipsModal.tsx`: dynamic trajectory viewer for Amena, Noyon, Reshma, Kalam, Babu, and Shirin tracking internal perceptions across all stages.
+- Re-architected `LedgerModal.tsx` into the evocative typewriter-style Psychological Ledger balance sheet with status badges and redacted metrics.
+- Integrated Relationships viewer into both Header and Pause Menu with keyboard and click navigation.
+- Verified all 7 automated reference playthrough tests pass with exact parity; production build generated cleanly.
