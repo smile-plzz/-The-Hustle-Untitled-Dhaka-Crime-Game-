@@ -38,3 +38,15 @@
 - Updated `README.md` with live site link, architecture diagrams, and badges.
 - Ran test suite and production build: All 7 playthrough tests passed and build bundle generated cleanly.
 - Staged, committed, and pushed changes to remote `origin/main`.
+
+## [2026-10-25 14:55:00] Adoption of Canonical Narrative & Design Direction
+- Integrated the user's merged canonical narrative and game design foundation into `CANONICAL_DESIGN.md` and updated `context.md`.
+- Formulated the 5-Phase implementation roadmap prioritizing: Relationships -> Moral choices -> Consequences -> Light management systems.
+- Documented core character arcs:
+  - Amena: Love surviving alongside denial; refrigerator motif; emotional withdrawal as ultimate consequence.
+  - Noyon: Moral memory system; strategic use of childhood nickname "Rafi".
+  - Reshma: Alternative approach to crime (opportunity, independence, performance).
+  - Kalam: Seductive convenience of violence ("Why make this complicated?").
+  - Babu: Living connection to Stage 1 ("Remember when ৳200 was enough?").
+  - Clean Relationship: Uncorrupted touchstone from outside the trade.
+- Planned psychological evolution of the Ledger interface across ages 14, 18, 22, and 26.

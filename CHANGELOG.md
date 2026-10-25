@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-10-25
+### Added
+- Canonical Narrative & Game Design Foundation (`CANONICAL_DESIGN.md`).
+- Multi-dimensional Relationship Trajectory specification for Amena, Noyon, Reshma, Kalam, Babu, and the clean touchstone relationship.
+- Evolving Psychological Ledger specification (Ages 14, 18, 22, 26).
+- 5-Phase Narrative & Systems Enhancement Roadmap.
+
 ## [0.1.1] - 2026-10-25
 ### Added
 - GitHub Actions CI/CD workflow (`.github/workflows/deploy.yml`) for automatic testing, building, and deployment to GitHub Pages.
