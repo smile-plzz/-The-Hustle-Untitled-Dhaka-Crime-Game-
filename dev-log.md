@@ -79,22 +79,44 @@
 - Updated `context.md` to reference `AGENTS_PROMPT_GUIDE.md`.
 - Staged, committed, and pushed changes to remote `origin/main`.
 
-## [2026-10-25 15:28:00] Bilingual Bengali Integration Across Entire Experience
-- Incorporated authentic Bengali and bilingual elements across every layer of the game while preserving deterministic stat engine compatibility:
-  - **News Wires (`archiveData.ts`)**: Translated all 12 ticker items (T-01 to T-12) into authentic Bangla news bulletins covering the Rana Plaza disaster, border drug raids, 2018 anti-drug drives, COVID lockdowns, and the August 2024 political shift.
-  - **Stage Cards & Scene Locations (`storyData.ts`)**: Updated all 5 Era Banners, location titles, and area markers to bilingual Dhaka locations (e.g. `যাত্রাবাড়ী ওয়্যারহাউজ`, `রেললাইন চা স্টল`, `ঝিলপাড় বস্তি ও ফাঁড়ি`, `বাকলিয়া, চট্টগ্রাম`, `কারওয়ান বাজার ও সদরঘাট`).
-  - **Choice Prompts (`storyData.ts`)**: All choice actions across Stages 1–5 now feature evocative Bengali action labels alongside clear parenthetical English translations (e.g. `ফেনসিডিলও টানতে রাজি হওয়া (Carry the syrup)`, `দারোগা হককে ২,০০০ টাকা ঘুষ দেওয়া (Offer 2,000 Tk bribe)`, `বাচ্চাটারে ঘরে পাঠাইয়া ওই বিক্রেতারে কাট করা (Send child home, pay family, cut seller)`).
-  - **Psychological Ledger (Lal Khata) Metrics**: Converted inter-stage financial ledger items into traditional Bengali account book categories (`চিকিৎসা ঋণ`, `হাতে নগদ`, `ডিপো`, `লাইনম্যান`, `আমেনা: মুখ বন্ধ / ফ্রিজ চলছে`, `দারোগা হক`).
-  - **HUD & Navigation Header (`Header.tsx`)**: Re-labeled stats and nav buttons to bilingual text (`টাকা (MONEY)`, `আনুগত্য (LOYALTY)`, `নজরদারি (HEAT)`, `নৈতিকতা (MORALITY)`, `দলবল (CREW)`, `ঘটনাক্রম`, `সম্পর্ক`, `আর্কাইভ`).
-  - **Scene Metadata & History (`ScenePlayer.tsx`)**: Fact tags updated to `বাস্তব ঘটনা (Real Events)` / `কাল্পনিক (Fictional)`; history drawer button updated to `ইতিহাস কী বলে? (What's the history?)`.
-  - **Ending Resolution Screen (`EndingScreen.tsx`)**: The 5 core endings and variants now display bilingual badges:
-    - `Redemption` -> `মুক্তি ও প্রায়শ্চিত্ত (REDEMPTION)`
-    - `The Untouchable Kingpin` -> `অস্পৃশ্য মহাজন (THE UNTOUCHABLE KINGPIN)`
-    - `Caught` -> `গ্রেফতার ও কারাদণ্ড (CAUGHT)`
-    - `Killed in the Turf War` -> `যাত্রাবাড়ীর গলিতে লাশ (KILLED IN TURF WAR)`
-    - `Ghost` -> `অদৃশ্য কুয়াশা (GHOST)`
-    - Variants: `আত্মসমর্পণ (SURRENDERED)`, `পলাতক (FLED)`, `বিশ্বাসঘাতকতা (BETRAYED)`.
-  - **Pause Menu & Save/Load (`PauseMenu.tsx`, `SaveLoadModal.tsx`)**: Full bilingual support for menu actions, save slots, audio toggles, and CRT scanlines.
+## [2026-10-25 15:45:00] Wiring Full Dhakaiya Dialogue & Scene Contexts
+- Task: Wire the user's authentic local Dhakaiya Bengali dialogue translations, emotional micro-contexts, and whispered character fates into the game narrative and engine:
+  - **Stage 1 (School Days - 2013 | Mirpur)**:
+    - S1-1: Amena's exhausted plea at the doorway (`“রফিক, কিছু একটা ভাবতে পারবি?”`) with factory ID and machine oil context. Rafiq's filial response (`“আমি টাকা জোগাড় কইরা নিমু মা।”`) vs. withdrawal (`“এডা আমার ঠিক করার মতো বিষয় না মা।”`).
+    - S1-2: Babu's quiet street offer (`“এই ছোট প্যাকেজটা তিন গলি পার হইয়া দোকানে দিয়া আয়। দুইশ টাকা। কোনো প্রশ্ন নাই।”`) and Rafiq asking for normal work (`“না ভাই... আমাকে নরমাল কাজ দেন।”`) met with Babu's street reality (`“নরমাল কাজের টাকা মাসে পায়। একটু ভাব।”`).
+    - S1-2B: Babu at the threshold (`“পাঁচশ টাকা। নে।”`).
+    - S1-3: Rafiq's lie looking his mother in the eye (`“এডা টিউশন কইরা কামাইছি মা।”`).
+  - **Stage 2 (First Hustle - 2015–2017 | Kalshi & Jhilpar)**:
+    - S2-1: Noyon's shout from the soccer wall (`“রফি! কোচ ডাকতেছে! তাড়াতাড়ি আয়!”`) vs. Babu's rules (`“ছোট ছোট অ্যামাউন্ট, চেনা মুখ... স্কুল গেটের কাছে কখনো না।”`).
+    - S2-2: Tanvir's desperate plea on credit (`“রফিক ভাই, মায়ের কসম, মাসের শেষে টাকা দিমু। একটু বাকিতে দেন না প্লিজ।”`) vs. Rafiq's hard stance (`“বাকি নাই। ক্যাশ অনলি।”`).
+    - S2-3: Rafiq talking his way out before the grocer (`“চাচা, আমার জন্য না... আমার কাজিনের জন্য নিছিলাম।”`).
+    - S2-4: Older clients asking for syrup (`“বাবু, ডাইল আছে?”`) and Babu's rationalization (`“মানুষ চায় তো রফিক। আমরা না আনলে অন্য কেউ আনবে।”`).
+    - S2-5: Amena noticing Bata shoes by the threshold (`“এই টাকা কোথা থিকা আসতেছে রফিক?”`) and Rafiq's responses (`“একটা দোকানে পার্ট-টাইম কাজ করি মা।”`, `“বাবুকে কিছু ডেলিভারিতে হেল্প করি মা।”`, `“রাস্তায় বেচি মা...”`).
+  - **Stage 3 (The Climb - 2017–2018 | Jatrabari & Mirpur)**:
+    - S3-1: Shuvo sizing up Rafiq across sweet cha (`“হিসাব বোঝে আর মুখ বন্ধ রাখে — এমন ছেলেই আমার পছন্দ। এই অফার দুইবার আসে না।”`).
+    - S3-2: Inspector Haque counting currency without looking down (`“ভালো। হাঁট। পেছনে তাকাবি না।”`).
+    - S3-3: The geometry box confrontation and Rafiq's responses (`“সব খুইলা কইছি মা। ওয়াদা করছি থামু। মাফ কইরা দেন।”`, `“কে ব্যাগে রাখছে জানি না! আপনে সবসময় সন্দেহ করেন কেন?!”`, `“বাড়ি চালাইতে এই টাকা লাগে মা। কারখানার বেতন দিয়া চলে না... আপনেও জানেন।”`) and Amena's heavy sigh (`“শুধু সাবধানে থাকিস...”`).
+    - S3-4: Babu's message from the thana lockup (`“রফিককে কইস... দুইশ টাকা যখন যথেষ্ট ছিল, সেই কথা মনে রাখুক।”`) and Haque's leverage (`“এখন বুঝলাম বন্ধুর জন্য কতদূর যাবি, রফিক।”`).
+    - S3-5: Rafiq counting alone by the lamp looking at the new Walton refrigerator (`“আমি তো মায়ের দেখাশোনা করছি...”`).
+  - **Stage 4 (Empire - 2019–2022 | Warehouse & Highway)**:
+    - S4-1: Noyon murmuring Rafiq's childhood nickname in the enforcer-filled warehouse (`“রফি...”`).
+    - S4-2: Reshma closing the transit ledger (`“সবকিছু ঢাকার ভিতর দিয়া কেন যাবে যখন বাকালিয়া নিজেই দাঁড়াইতে পারে? তুমি রিস্ক হিসাব করো রফিক... আমি অপরচুনিটি হিসাব করি।”`).
+    - S4-3: Shuvo raspy midnight burner call (`“বড় গডফাদাররা টেকনাফে সারেন্ডার কইরাছে... তাই ছোট খেলোয়াড়দের দ্বিগুণ দিতে হয়। হাইওয়েতে কিছুই বদলায় নাই রফিক, শুধু শ্বাস নেওয়ার দাম বাড়ছে।”`) and Haque taking bribes as favours (`“এটাকে দুই ভদ্রলোকের মধ্যে একটা ফেভার হিসাবে নাও।”`).
+    - S4-4: Noyon confronting COVID lockdown profits (`“রিকশাওয়ালাদের ঘরে বাচ্চাগুলার খাওয়ার কিছু নাই রফি। এত টাকা দিয়া কী হবে যদি চোখের সামনে গলিটার মানুষ না খাইয়া মরে?”`).
+    - S4-5: Ideological clash between Noyon (`“ওর বাবার লগে কথা বলা উচিত রফি। তুই আগে এভাবে সমস্যা সমাধান করতিস না।”`) and Kalam's cold convenience (`“কাম সোজা থাকতে প্যাচান ক্যান ভাই? এক দুপুর মাইক্রোবাসের পিছে কাটাইয়া আসলেই পুরা হাইওয়ে সোজা হইয়া যাইব।”`).
+  - **Stage 5 (Reckoning - 2023–2025 | Dhaka & Chattogram)**:
+    - S5-1: Haque's call amidst post-uprising burned police stations (`“ইউনিফর্ম এখন খোলা রফিক। কিন্তু ফাইল কখনো পোড়ে না।”`).
+    - S5-2: The confrontation with the twelve-year-old child runner (`“তোর বয়স কত?”` / `“বারো।”` / Noyon: `“ওর দিকে তাকা রফি। তুই কী হইয়া গেছিস দেখ।”`).
+    - S5-3: Chattogram rented room near Shah Amanat Bridge and the heavy night knock on the wooden door (`রাতের বেলা শাহ আমানত ব্রিজের কাছে ভাড়া করা ঘরের দরজায় ভারী নক পড়ে।`).
+  - **Whispered Epilogue Fates (`engine.ts`)**:
+    - Amena: `আমেনা এখনো তার জন্য একটা প্লেট সাজায়।` / `আমেনা বছরে একবার চিঠি লেখে।` / `আমেনা তার নাম মুখে আনে না।`
+    - Babu: `বাবু এখন বয়স্ক, তবু চায়ের দোকান দিয়া খবর পাঠায়।` / `২০১৮-র অভিযানের পর বাবু কোথায় গেল, মিরপুরে কেউ বলে না।`
+    - Shuvo: `শুভো আর রফিক একই হাইওয়ে আর একই নীরবতা শেয়ার করে।`
+    - Haque: `ইন্সপেক্টর হকের দাম বাড়তে বাড়তে রফিকের সামর্থ্যের বাইরে চইলা গেল।`
+    - Noyon: `নয়নই একমাত্র যে দেখতে আসে।`
+    - Reshma: `রেশমা তার ভাগ আর চট্টগ্রামের একটা গলি নিয়া আর পেছনে ফিরে তাকায় নাই।`
+    - Kalam: `কালামের নাম দুই জেলার পুলিশ ফাইলে আছে।`
+    - The Boy: `একটা বারো বছরের ছেলে মিরপুরের স্কুলের বেঞ্চে বইসা আছে... কে টাকা দিছিল সে জানে না।`
 - Build & Test Verification:
-  - Vitest test suite (`npm test`): 7/7 reference playthroughs passed with 100% exact parity.
-  - Production build (`npm run build`): Generated clean bundle in `dist/`.
+  - `npm test`: 7/7 reference playthrough tests passed with 100% exact parity.
+  - `npm run build`: Zero errors, production bundle compiled cleanly in `dist/`.

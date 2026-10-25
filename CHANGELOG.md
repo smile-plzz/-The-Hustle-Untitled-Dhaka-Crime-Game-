@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-10-25
+### Added
+- Authentic local Dhakaiya Bengali dialogue lines wired across all scenes in Stages 1 through 5 (`storyData.ts`).
+- Emotional micro-contexts for Amena, Noyon, Babu, Tanvir, Shuvo, Inspector Haque, Reshma, Kalam, and the 12-year-old child runner.
+- Whispered character fate lines in the ending epilogue with authentic Bengali phrasing and English subtitles (`engine.ts`).
+
 ## [0.3.0] - 2026-10-25
 ### Added
 - Authentic Bengali news wire tickers (T-01 to T-12) covering national historical milestones in Dhaka and regional border corridors.

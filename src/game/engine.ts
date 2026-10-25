@@ -143,125 +143,120 @@ export function resolveEnding(state: GameState): EndingResult {
 
   // Amena
   if (stats.loyalty >= 60) {
-    characterLines.push({ character: 'Amena', line: 'Amena still sets a plate for him.' });
+    characterLines.push({ character: 'আমেনা (Amena)', line: 'আমেনা এখনো তার জন্য একটা প্লেট সাজায়। (Amena still sets a plate for him.)' });
   } else if (stats.loyalty >= 21) {
-    characterLines.push({ character: 'Amena', line: 'Amena writes to him once a year.' });
+    characterLines.push({ character: 'আমেনা (Amena)', line: 'আমেনা বছরে একবার চিঠি লেখে। (Amena writes to him once a year.)' });
   } else {
-    characterLines.push({ character: 'Amena', line: 'Amena does not say his name.' });
+    characterLines.push({ character: 'আমেনা (Amena)', line: 'আমেনা তার নাম মুখে আনে না। (Amena does not say his name.)' });
   }
 
   // Babu
   if (flags.babuStatus === 'loyal') {
     characterLines.push({
-      character: 'Babu',
-      line: 'Babu, older now, still sends word through the tea stall.',
-    });
-  } else if (flags.babuStatus === 'owes') {
-    characterLines.push({
-      character: 'Babu',
-      line: 'Babu keeps his distance and a debt he never mentions.',
+      character: 'বাবু (Babu)',
+      line: 'বাবু এখন বয়স্ক, তবু চায়ের দোকান দিয়া খবর পাঠায়। (Babu, older now, still sends word through the tea stall.)',
     });
   } else if (flags.babuStatus === 'gone') {
     characterLines.push({
-      character: 'Babu',
-      line: 'Nobody in Mirpur will say where Babu went after the 2018 sweep.',
+      character: 'বাবু (Babu)',
+      line: '২০১৮-র অভিযানের পর বাবু কোথায় গেল, মিরপুরে কেউ বলে না। (Nobody in Mirpur will say where Babu went after the 2018 sweep.)',
     });
   } else {
     characterLines.push({
-      character: 'Babu',
-      line: 'Babu keeps his distance and a debt he never mentions.',
+      character: 'বাবু (Babu)',
+      line: 'বাবু নিজের দূরত্ব আর না বলা ঋণ ধইরা রাখছে। (Babu keeps his distance and an unmentioned debt.)',
     });
   }
 
   // Shuvo
-  if (flags.shuvoStatus === 'paid') {
+  if (flags.shuvoStatus === 'peace') {
     characterLines.push({
-      character: 'Shuvo',
-      line: "Shuvo's name still comes up at the tea stalls, and his cut is still paid.",
+      character: 'শুভ (Shuvo)',
+      line: 'শুভো আর রফিক একই হাইওয়ে আর একই নীরবতা শেয়ার করে। (Shuvo and Rafiq share a highway and a silence.)',
+    });
+  } else if (flags.shuvoStatus === 'paid') {
+    characterLines.push({
+      character: 'শুভ (Shuvo)',
+      line: 'চায়ের দোকানে শুভর নাম এখনো ওঠে, তার ভাগ এখনো দেওয়া হয়। (Shuvo\'s cut is still paid.)',
     });
   } else if (flags.shuvoStatus === 'war') {
     characterLines.push({
-      character: 'Shuvo',
-      line: "Shuvo's side of Jatrabari is quiet in a way nobody discusses.",
-    });
-  } else if (flags.shuvoStatus === 'peace') {
-    characterLines.push({
-      character: 'Shuvo',
-      line: 'Shuvo and Rafiq share a highway and a silence.',
+      character: 'শুভ (Shuvo)',
+      line: 'যাত্রাবাড়ীর শুভর দিকটা এমন শান্ত যা নিয়ে কেউ কথা বলে না। (Shuvo\'s side of Jatrabari is quiet in a way nobody discusses.)',
     });
   }
 
   // Haque
   if (flags.haqueOwnsYou) {
     characterLines.push({
-      character: 'Inspector Haque',
-      line: "Inspector Haque's price rose until it was more than Rafiq had.",
+      character: 'দারোগা হক (Inspector Haque)',
+      line: 'ইন্সপেক্টর হকের দাম বাড়তে বাড়তে রফিকের সামর্থ্যের বাইরে চইলা গেল। (Inspector Haque\'s price rose until it was more than Rafiq had.)',
     });
   } else if (flags.haqueBribed) {
     characterLines.push({
-      character: 'Inspector Haque',
-      line: 'Haque took the money and never asked for a name.',
+      character: 'দারোগা হক (Inspector Haque)',
+      line: 'হক টাকাটা নিয়া নিছিল, কখনো নাম জিজ্ঞাসা করে নাই। (Haque took the money and never asked for a name.)',
     });
   } else if (flags.informedOnShuvo) {
     characterLines.push({
-      character: 'Inspector Haque',
-      line: 'Haque kept the name Rafiq gave him in a drawer.',
+      character: 'দারোগা হক (Inspector Haque)',
+      line: 'হক রফিকের দেওয়া নামটা ড্রয়ারে যত্ন করে রেখে দিছিল। (Haque kept the name Rafiq gave him in a drawer.)',
     });
   } else {
     characterLines.push({
-      character: 'Inspector Haque',
-      line: 'Haque kept a file on him.',
+      character: 'দারোগা হক (Inspector Haque)',
+      line: 'হক তার ওপর একটা ফাইল রেখে দিছিল। (Haque kept a file on him.)',
     });
   }
 
   // Noyon
   if (crew.noyon === 90) {
-    characterLines.push({ character: 'Noyon', line: 'Noyon is the only one who visits.' });
+    characterLines.push({ character: 'নয়ন (Noyon)', line: 'নয়নই একমাত্র যে দেখতে আসে। (Noyon is the only one who visits.)' });
   } else {
-    characterLines.push({ character: 'Noyon', line: 'Noyon stayed to the end.' });
+    characterLines.push({ character: 'নয়ন (Noyon)', line: 'নয়ন শেষ পর্যন্ত পাশে ছিল। (Noyon stayed to the end.)' });
   }
 
   // Reshma
   if (flags.reshmaDefected) {
     characterLines.push({
-      character: 'Reshma',
-      line: 'Reshma took her share and a lane in Chattogram and never looked back.',
+      character: 'রেশমা (Reshma)',
+      line: 'রেশমা তার ভাগ আর চট্টগ্রামের একটা গলি নিয়া আর পেছনে ফিরে তাকায় নাই। (Reshma took her share and a lane in Chattogram and never looked back.)',
     });
   } else if (crew.reshma >= 50) {
     characterLines.push({
-      character: 'Reshma',
-      line: "Reshma runs her own corner of Chattogram now, with Rafiq's silence.",
+      character: 'রেশমা (Reshma)',
+      line: 'রেশমা এখন চট্টগ্রামের নিজের কোণা সামলায়, রফিকের নীরব সম্মতিতে। (Reshma runs her own corner of Chattogram now.)',
     });
   } else {
     characterLines.push({
-      character: 'Reshma',
-      line: 'Reshma stayed, but stopped talking.',
+      character: 'রেশমা (Reshma)',
+      line: 'রেশমা রয়ে গেল, কিন্তু কথা বলা বন্ধ কইরা দিল। (Reshma stayed, but stopped talking.)',
     });
   }
 
   // Kalam
   if (flags.kalamViolence) {
     characterLines.push({
-      character: 'Kalam',
-      line: "Kalam's name is in a police file in two districts.",
+      character: 'কালাম (Kalam)',
+      line: 'কালামের নাম দুই জেলার পুলিশ ফাইলে আছে। (Kalam\'s name is in a police file in two districts.)',
     });
   } else {
     characterLines.push({
-      character: 'Kalam',
-      line: 'Kalam went back to a quiet life.',
+      character: 'কালাম (Kalam)',
+      line: 'কালাম চুপচাপ সাধারণ জীবনে ফিরে গেল। (Kalam went back to a quiet life.)',
     });
   }
 
   // The boy
   if (flags.childrenProtected) {
     characterLines.push({
-      character: 'The boy',
-      line: 'A twelve-year-old sits at a school desk in Mirpur and does not know who paid.',
+      character: 'বারো বছরের ছেলেটা (The Boy)',
+      line: 'একটা বারো বছরের ছেলে মিরপুরের স্কুলের বেঞ্চে বইসা আছে... কে টাকা দিছিল সে জানে না। (A twelve-year-old sits at a school desk in Mirpur and does not know who paid.)',
     });
   } else {
     characterLines.push({
-      character: 'The boy',
-      line: "The boy's name is in no file.",
+      character: 'বারো বছরের ছেলেটা (The Boy)',
+      line: 'ছেলেটার নাম কোনো ফাইলে ওঠে নাই। (The boy\'s name is in no file.)',
     });
   }
 

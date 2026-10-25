@@ -15,17 +15,17 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 1,
     year: '2013',
     month: 'May',
-    locationName: 'Mirpur',
+    locationName: 'মিরপুরের ঘর (Home)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'real',
     tickerId: 'T-01',
     archiveIds: ['A-02'],
     getSetupText: () =>
-      "Two weeks after the Savar garment complex collapse, every garment-worker household in the Mirpur lane is on edge. Rafiq's father was crushed in a lathe workshop accident and cannot work. The hospital wants 15,000 taka. Amena stands in the doorway, smelling of sewing machine oil, her factory ID still pinned to her cotton kameez, and asks Rafiq if he can think of anything. Rafiq is fourteen, good at math, and had his algebra notebook open on the wooden trunk.",
+      "সাভারের রানা প্লাজা কারখানা ধসের দুই সপ্তাহ পর মিরপুরের পোশাকপল্লীর প্রতিটা পরিবার আতঙ্কে। কারখানার লেদ মেশিনের দুর্ঘটনায় রফিকের বাবার শরীর ভেঙে গেছে, আর কাজ করার ক্ষমতা নাই। হাসপাতালের দাবি ১৫,০০০ টাকা।\n\nআমেনা কারখানার আইডি হাতে দরজার কাছে দাঁড়াইয়া, ক্লান্ত গলায় কয় — “রফিক, কিছু একটা ভাবতে পারবি?”\n\nরফিকের বয়স ১৪, অঙ্কে তুখোড়; কাঠের ট্রাঙ্কের ওপর তার বীজগণিতের খাতা খোলা পড়ে রইছে।",
     choices: [
       {
         key: 'A',
-        label: 'টাকা আমি জোগাড় করব, মা। (I will find the money, Ma.)',
+        label: '“আমি টাকা জোগাড় কইরা নিমু মা।” (I will find the money, Ma.)',
         resultText: 'Amena nods and says nothing. She does not believe it yet.',
         execute: (state) => ({
           state: {
@@ -41,7 +41,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'এইটা তো আমার পক্ষে ঠিক করা সম্ভব না। (That is not something I can fix.)',
+        label: '“এডা আমার ঠিক করার মতো বিষয় না মা।” (That is not something I can fix, Ma.)',
         resultText: 'The door closes softly. It is worse than a slam.',
         execute: (state) => ({
           state: {
@@ -68,11 +68,11 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur-1, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      "Babu, two years older and always near the tea stalls, notices Rafiq's haunted face. In the lane, Shirin and two schoolgirls walk past with heavy backpacks, talking about coaching exams. Babu taps Rafiq on the shoulder and offers 200 taka to carry a small wrapped parcel three lanes away to a mechanic shop. No questions asked.",
+      "চা স্টলের পাশে রফিকের বিষণ্ণ মুখ খেয়াল করে দুই বছরের বড় বাবু। গলির মুখে শিরীন আর অন্য মেয়েরা ভারী স্কুলব্যাগ নিয়া কোচিংয়ের কথা বলতে বলতে চইলা যায়।\n\nবাবু প্যাকেজটা হাতে দিয়া আস্তে কয় — “এই ছোট প্যাকেজটা তিন গলি পার হইয়া দোকানে দিয়া আয়। দুইশ টাকা। কোনো প্রশ্ন নাই।”",
     choices: [
       {
         key: 'A',
-        label: 'পার্সেলটা ডেলিভারি দেওয়া (Accept the delivery)',
+        label: 'প্যাকেজটা দোকানে দিয়া আসা (Deliver the parcel — ৳200)',
         resultText: 'The package is light. The 200 taka is not.',
         execute: (state) => ({
           state: {
@@ -90,8 +90,8 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'না করে দিয়ে সাধারণ কাজের খোঁজ করা (Refuse and ask for normal job)',
-        resultText: "Babu laughs, not unkindly. 'Normal jobs pay in a month. Think about it.'",
+        label: '“না ভাই... আমাকে নরমাল কাজ দেন।” (No bhai... give me a normal job)',
+        resultText: 'বাবু হালকা হাসি দিয়া কয় — “নরমাল কাজের টাকা মাসে পায়। একটু ভাব।”',
         execute: (state) => ({
           state: {
             ...state,
@@ -101,7 +101,7 @@ export const SCENES: Record<string, SceneDefinition> = {
               morality: Math.min(100, Math.max(0, state.stats.morality + 5)),
             },
           },
-          resultText: "Babu laughs, not unkindly. 'Normal jobs pay in a month. Think about it.'",
+          resultText: 'বাবু হালকা হাসি দিয়া কয় — “নরমাল কাজের টাকা মাসে পায়। একটু ভাব।”',
           nextSceneId: 'S1-2B',
         }),
       },
@@ -117,12 +117,12 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur-1, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      'The hospital sends a final red notice. The medicine shop cuts off their credit. Babu is at the door with a bigger offer: 500 taka. There is one choice.',
+      "হাসপাতালের শেষ লাল নোটিশটা আসে। ওষুধের দোকান বাকি দেওয়া বন্ধ করে। দরজায় আইসা বাবু আরেকটা বড় অফার দেয়।\n\nবাবু হালকা হাসি দিয়া কয় — “পাঁচশ টাকা। নে।”",
     choices: [
       {
         key: 'A',
-        label: 'টাকাটা নিয়ে নেওয়া (Take it)',
-        resultText: 'Rafiq takes it. Babu does not say I told you so.',
+        label: '“পাঁচশ টাকা। নে।” (Take the 500 Tk)',
+        resultText: 'রফিক টাকাটা হাতে নেয়। বাবু কোনো কথা কয় না।',
         execute: (state) => ({
           state: {
             ...state,
@@ -134,7 +134,7 @@ export const SCENES: Record<string, SceneDefinition> = {
               morality: Math.min(100, Math.max(0, state.stats.morality - 10)),
             },
           },
-          resultText: 'Rafiq takes it. Babu does not say I told you so.',
+          resultText: 'রফিক টাকাটা হাতে নেয়। বাবু কোনো কথা কয় না।',
           nextSceneId: 'S1-3',
         }),
       },
@@ -150,7 +150,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      "Rafiq holds the crisp currency notes in his pocket. It is more than Amena earns in a brutal week of factory overtime. On the desk sits his school geometry box with the rusted compass.",
+      "পকেটে নতুন কড়কড়ে টাকার নোটগুলো চেপে ধরে রফিক। কারখানায় আমেনার এক সপ্তাহের টানা ওভারটাইমের চেয়েও বেশি টাকা। কাঠের পড়ার টেবিলে মরিচা ধরা কম্পাস দেওয়া তার জ্যামিতি বক্সটা পড়ে আছে।",
     choices: [
       {
         key: 'A',
@@ -196,7 +196,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'পুরোটা নিজের কাছে রেখে টিউশনির টাকা বলা (Keep it all; lie about tutoring)',
+        label: 'মায়ের চোখের দিকে তাকাইয়া মিথ্যা কয় — “এডা টিউশন কইরা কামাইছি মা।” (Lie: made it from tutoring)',
         resultText: 'The lie comes easily, which is the problem.',
         execute: (state) => ({
           state: {
@@ -225,7 +225,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'fictional',
     archiveIds: ['A-04'],
     getSetupText: () =>
-      "Babu teaches Rafiq the quiet rules of the lane: small amounts, familiar faces, never near the school gate. Weed sells in lots of 100 to 200 taka. Noyon, kicking a bald football against a brick wall, calls out 'Rafi, coach is calling!' but Rafiq turns his back towards the tea stall. His first buyers are older boys from the next lane.",
+      "ইটের দেয়ালে পুরনো ন্যাড়া ফুটবল মারতে মারতে নয়ন দূরে থিকা চিৎকার কইরা কয় — “রফি! কোচ ডাকতেছে! তাড়াতাড়ি আয়!”\n\nকিন্তু রফিক চায়ের দোকানের দিকে ফিরে দাঁড়ায়। বাবু রফিককে গলির অলিখিত নিয়ম শিখায় — “ছোট ছোট অ্যামাউন্ট, চেনা মুখ... স্কুল গেটের কাছে কখনো না।”\n\n১০০ থেকে ২০০ টাকার গাঁজার পুড়িয়া। তার প্রথম খরিদ্দার পাশের গলির বড় ছেলেরা।",
     choices: [
       {
         key: 'A',
@@ -273,7 +273,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      "Tanvir from class 10 is shaking at the edge of the alley. His elder brother was beaten by loan sharks. He begs Rafiq to let him take a small packet on credit and swears on his mother's head he will pay by month-end. In the distance, Shirin walks past the library.",
+      "ক্লাস টেনের তানভীর গলির কোণায় কাঁপতেছে। সুদের মহাজনরা ওর বড় ভাইকে মারধোর করছে।\n\nতানভীর হাত জোড় কইরা কয় — “রফিক ভাই, মায়ের কসম, মাসের শেষে টাকা দিমু। একটু বাকিতে দেন না প্লিজ।”\n\nদূরে লাইব্রেরির সামনে দিয়ে শিরীন হেঁটে চলে যায়।",
     choices: [
       {
         key: 'A',
@@ -298,7 +298,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'না করে দেওয়া, নগদ ছাড়া বাকি নাই (Refuse, cash only)',
+        label: 'শক্ত গলায় কয় — “বাকি নাই। ক্যাশ অনলি।” (Refuse: Cash only)',
         resultText: 'Tanvir walks away. Rafiq makes a sale elsewhere that day.',
         execute: (state) => ({
           state: {
@@ -353,7 +353,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       return { state };
     },
     getSetupText: () =>
-      "A shopkeeper who knows Amena sees a hand-off near his stall and starts walking over, wiping flour off his apron.",
+      "আমেনাকে চেনে এমন এক মুদি দোকানি হাতাহাতি লেনদেন দেখে সন্দেহভাজন চোখে এগিয়ে আসে, এপ্রন দিয়ে ময়দা মুছতে মুছতে।",
     choices: [
       {
         key: 'A',
@@ -373,7 +373,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'মিষ্টি কথায় সামলানো: খালাতো ভাইয়ের জন্য (Talk his way out)',
+        label: 'চাচার সামনে কথা সাজাইয়া কয় — “চাচা, আমার জন্য না... আমার কাজিনের জন্য নিছিলাম।” (Talk his way out)',
         resultText: 'The shopkeeper half believes him, which is enough.',
         execute: (state) => ({
           state: {
@@ -402,7 +402,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-02',
     archiveIds: ['A-01'],
     getSetupText: () =>
-      "Two older men ask Babu for dyl, the codeine cough syrup that was everywhere when they were young. Babu can get it across the northern border. He looks at Rafiq to see whether Rafiq will carry it too: 'People want it anyway, Rafiq. If we don't bring it, someone else will.'",
+      "দুইজন বয়স্ক খরিদ্দার এসে দোকানে বাবুর কাছে কোডিনের কাশির সিরাপ খোঁজে — “বাবু, ডাইল আছে?”\n\nবাবু কাঁধ ঝাড়া দিয়া কয় — “মানুষ চায় তো রফিক। আমরা না আনলে অন্য কেউ আনবে।” সে রফিকের দিকে তাকায়, রফিকও সাথে টানবে কি না।",
     choices: [
       {
         key: 'A',
@@ -451,11 +451,11 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
-      "Amena notices the clean leather Bata shoes by the threshold and the new quiet calm in Rafiq's eyes. On the clay stove, the tea boils over. She asks quietly where the money is coming from.",
+      "মাটির চুলার ওপর চায়ের পানি উপচে পড়ে। দরজার কাছে রফিকের বাটার নতুন চকচকে চামড়ার জুতা দেখে আমেনা থমকে দাঁড়ায়।\n\nআমেনা নতুন জুতা দেখিয়া আস্তে কয় — “এই টাকা কোথা থিকা আসতেছে রফিক?”",
     choices: [
       {
         key: 'A',
-        label: 'মিথ্যে বলা: দোকানে পার্ট-টাইম কাজ পাইছি (Lie: shop job)',
+        label: 'মিথ্যা বলা: “একটা দোকানে পার্ট-টাইম কাজ করি মা।” (Lie: shop job)',
         resultText: 'She lets it go, and he sees that it costs her something.',
         execute: (state) => {
           const ledger: StageLedgerData = {
@@ -488,7 +488,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'অর্ধসত্য বলা: বাবুকে সাহায্য করি (Half-truth: help Babu)',
+        label: 'অর্ধসত্য: “বাবুকে কিছু ডেলিভারিতে হেল্প করি মা।” (Half-truth: help Babu)',
         resultText: 'She hears what she needs to hear.',
         execute: (state) => {
           const ledger: StageLedgerData = {
@@ -521,7 +521,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'সত্যিটা স্বীকার করা (Tell the truth)',
+        label: 'চোখ নামিয়া সত্যি কইয়া ফেলে — “রাস্তায় বেচি মা...” (Tell the truth: street)',
         execute: (state) => {
           const moralEnough = state.stats.morality >= 50;
           const resultText = moralEnough
@@ -566,13 +566,13 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2017',
     month: 'September',
-    locationName: 'Dhalpur side',
+    locationName: 'ধলপুর, যাত্রাবাড়ী (Dhalpur side)',
     locationArea: 'Jatrabari, Dhaka',
     factTag: 'real',
     tickerId: 'T-03',
     archiveIds: ['A-03', 'A-05'],
     getSetupText: () =>
-      "The newspapers are full of refugees across the south-east border and pink tablets named yaba. Babu takes Rafiq across town past Kamalapur station to meet Shuvo on the Dhalpur side of Jatrabari. Shuvo sips sweet cha and sizes up Rafiq: 'A boy who knows arithmetic and keeps his mouth shut.' He offers Rafiq a sub-distributor role moving pills into Mirpur.",
+      "পত্রিকাগুলোতে টেকনাফ সীমান্ত আর গোলাপি ইয়াবার খবরের ছড়াছড়ি। বাবু রফিককে কমলাপুর স্টেশন পার করে যাত্রাবাড়ীর ধলপুরে শুভর আস্তানায় নিয়ে যায়। মিষ্টি চায়ে চুমুক দিয়ে শুভ ঠান্ডা চোখে রফিককে মাপে।\n\nশুভ টেবিলের ওপারে বইসা ঠান্ডা গলায় কয় — “হিসাব বোঝে আর মুখ বন্ধ রাখে — এমন ছেলেই আমার পছন্দ। এই অফার দুইবার আসে না।”",
     choices: [
       {
         key: 'A',
@@ -635,7 +635,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       {
         key: 'A',
         label: 'দারোগা হককে ২,০০০ টাকা ঘুষ দেওয়া (Offer 2,000 Tk bribe)',
-        resultText: "Haque counts it without looking down. 'Good. Walk.'",
+        resultText: "হক নোট গুনতে গুনতে চোখ না তুইলা কয় — “ভালো। হাঁট। পেছনে তাকাবি না।”",
         isAvailable: (state) => ({
           available: state.stats.money >= 2000,
           reason: 'Requires at least 2,000 taka',
@@ -653,7 +653,7 @@ export const SCENES: Record<string, SceneDefinition> = {
               haqueBribed: true,
             },
           },
-          resultText: "Haque counts it without looking down. 'Good. Walk.'",
+          resultText: "হক নোট গুনতে গুনতে চোখ না তুইলা কয় — “ভালো। হাঁট। পেছনে তাকাবি না।”",
           nextSceneId: 'S3-3',
         }),
       },
@@ -757,14 +757,14 @@ export const SCENES: Record<string, SceneDefinition> = {
     getSetupText: (state) => {
       const packet =
         state.flags.trade === 'yaba'
-          ? 'a small plastic packet of pink tablets'
-          : 'a folded paper of dry leaves';
-      return `Amena finds packaging deep inside Rafiq's satchel, tucked under his old school geometry set: ${packet}. She holds it between thumb and forefinger as if it were burning coal, and says nothing.`;
+          ? 'গোলাপি ট্যাবলেটের ছোট প্লাস্টিক প্যাকেট'
+          : 'শুকনা পাতার মোড়ানো পুড়িয়া';
+      return `স্কুলের জ্যামিতি বক্সের নিচ থেকে রফিকের ব্যাগে প্যাকেটটা খুঁজে পায় আমেনা: ${packet}। যেন জ্বলন্ত কয়লা হাতে ধরেছে, এমনভাবে আঙুলে ধরে আমেনা স্তব্ধ হয়ে তাকিয়ে থাকে।`;
     },
     choices: [
       {
         key: 'A',
-        label: 'সব স্বীকার করে ছেড়ে দেওয়ার ওয়াদা (Confess & promise to stop)',
+        label: 'মায়ের পায়ের কাছে বইসা কয় — “সব খুইলা কইছি মা। ওয়াদা করছি থামু। মাফ কইরা দেন।” (Confess & promise to stop)',
         resultText: 'She cries and he promises. It is the truest thing he says that year.',
         execute: (state) => ({
           state: {
@@ -785,7 +785,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'অস্বীকার করে মেজাজ দেখানো (Deny it and shout)',
+        label: 'উত্তেজিত হইয়া কয় — “কে ব্যাগে রাখছে জানি না! আপনে সবসময় সন্দেহ করেন কেন?!” (Deny it and shout)',
         resultText: 'She stops asking. That is worse.',
         execute: (state) => ({
           state: {
@@ -802,8 +802,8 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'সংসারের খরচের কথা বলে বাস্তবতা বোঝানো (Confess: family needs money)',
-        resultText: 'She is quiet for a long time. Then she asks him to be careful.',
+        label: 'চোখের দিকে তাকাইয়া কয় — “বাড়ি চালাইতে এই টাকা লাগে মা। কারখানার বেতন দিয়া চলে না... আপনেও জানেন।” (Family needs money)',
+        resultText: 'আমেনা দীর্ঘশ্বাস ফেলিয়া আস্তে কয় — “শুধু সাবধানে থাকিস...”',
         execute: (state) => ({
           state: {
             ...state,
@@ -813,7 +813,7 @@ export const SCENES: Record<string, SceneDefinition> = {
               morality: Math.min(100, Math.max(0, state.stats.morality + 5)),
             },
           },
-          resultText: 'She is quiet for a long time. Then she asks him to be careful.',
+          resultText: 'আমেনা দীর্ঘশ্বাস ফেলিয়া আস্তে কয় — “শুধু সাবধানে থাকিস...”',
           nextSceneId: 'S3-4',
         }),
       },
@@ -830,7 +830,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'real',
     archiveIds: ['A-07'],
     getSetupText: () =>
-      'Babu is picked up in a sweep of the Mirpur lanes. He sends word from the thana: bail is 5,000 taka, or someone has to speak to Haque. Babu whispers to the courier: "Tell him to remember when 200 taka was enough."',
+      "মিরপুরের অভিযানে বাবু ধরা পড়ে। থানা থেকে বাবু খবর পাঠায়: জামিনের জন্য পাঁচ হাজার টাকা লাগবে, অথবা হকের সাথে কথা বলতে হবে।\n\nবাবু লকআপ থিকা খবর পাঠায় — “রফিককে কইস... দুইশ টাকা যখন যথেষ্ট ছিল, সেই কথা মনে রাখুক।”",
     choices: [
       {
         key: 'A',
@@ -860,7 +860,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       {
         key: 'B',
         label: 'দারোগা হককে দিয়ে মামলা থামানো (Ask Haque to make it go away)',
-        resultText: 'Haque makes a call. Now he knows what Rafiq will do for a friend.',
+        resultText: 'দারোগা হক হালকা হাসি দিয়া কয় — “এখন বুঝলাম বন্ধুর জন্য কতদূর যাবি, রফিক।”',
         execute: (state) => ({
           state: {
             ...state,
@@ -874,7 +874,7 @@ export const SCENES: Record<string, SceneDefinition> = {
               babuStatus: 'owes',
             },
           },
-          resultText: 'Haque makes a call. Now he knows what Rafiq will do for a friend.',
+          resultText: 'দারোগা হক হালকা হাসি দিয়া কয় — “এখন বুঝলাম বন্ধুর জন্য কতদূর যাবি, রফিক।”',
           nextSceneId: 'S3-5',
         }),
       },
@@ -913,7 +913,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-05',
     archiveIds: ['A-08'],
     getSetupText: () =>
-      "Parliament passes the Narcotics Control Act 2018: 200 grams of yaba now carries death or life in prison. With his earnings, Rafiq replaces the leaking clay water pot and buys a new white Walton refrigerator for the kitchen. He tells himself: 'I am taking care of my mother.' Amena stands before the humming appliance with grey factory lint on her fingers, looking at it as though it were a corpse in the room. Rafiq counts his cash alone by the lamp.",
+      "২০১৮ সালের মাদকদ্রব্য নিয়ন্ত্রণ আইন পাস হয়: ২০০ গ্রাম ইয়াবার জন্য মৃত্যুদণ্ড বা যাবজ্জীবন। উপার্জনের টাকা দিয়ে রফিক মাটির কলসি সরিয়ে রান্নাঘরে একটা নতুন সাদা ওয়ালটন ফ্রিজ কিনে দেয়।\n\nরফিক নতুন ফ্রিজের দিকে তাকাইয়া মনে মনে কয় — “আমি তো মায়ের দেখাশোনা করছি...”\n\nআমেনা আঙুলে ধূসর সুতা মেখে গুনগুন করা ফ্রিজটার সামনে দাঁড়িয়ে থাকে, যেন ঘরে কোনো লাশ পড়ে আছে। বাতির নিচে একলা বসে রফিক তার বান্ডিল গোনে।",
     reflectionText: (state) =>
       state.stats.morality >= 50
         ? 'He thinks of Amena at the door and his hands are not steady.'
@@ -970,9 +970,9 @@ export const SCENES: Record<string, SceneDefinition> = {
     getSetupText: (state) => {
       const babuLine =
         state.flags.babuStatus === 'loyal' || state.flags.babuStatus === 'owes'
-          ? 'Babu stands by the door with a cigarette.'
-          : 'the doorway is empty and nobody mentions his name.';
-      return `Rafiq rents the back half of a warehouse in Jatrabari off the highway. Noyon arrives first, carrying tea and looking at the steel shutters. Then Reshma, sharp and quick with numbers, carrying a ledger of highway delivery timings. Then Kalam, older, silent, scars on his knuckles from Kashimpur jail. In the doorway, ${babuLine} Noyon looks at the money crates, looks at Rafiq, and murmurs under his breath: 'Rafi...'`;
+          ? 'দরজায় সিগারেট হাতে দাঁড়ায়া বাবু।'
+          : 'দরজাটা ফাঁকা, বাবুর নাম কেউ মুখে আনে না।';
+      return `যাত্রাবাড়ীতে হাইওয়ের কাছে একটা ওয়্যারহাউজের পেছনের অংশ ভাড়া নেয় রফিক। চায়ের ফ্লাস্ক হাতে সবার আগে আসে নয়ন, ইস্পাতের শাটারের দিকে তাকিয়ে থাকে। তারপর আসে রেশমা, তীক্ষ্ণ চোখ আর হিসাবের খাতা নিয়ে। তারপর কাশিমপুর জেলের দাগি কালাম। দরজায় ${babuLine}\n\nনয়ন নগদ আর এনফোর্সার ভরা গুদামের ঘরে ঢুইকা, পুরোনো গলায় আস্তে কয় — “রফি...”`;
     },
     autoContinue: {
       buttonLabel: 'এগিয়ে যান (Continue)',
@@ -997,7 +997,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     locationArea: 'চট্টগ্রাম (Chattogram)',
     factTag: 'fictional',
     getSetupText: () =>
-      "Reshma spreads a transit map of Chattogram's Bakalia district across the table. 'Why funnel every single consignment through Dhaka when Bakalia can stand on its own?' she asks. 'You calculate risk, Rafiq. I calculate opportunity.' She waits to see if he treats her as a genuine partner or merely as hired labor.",
+      "টেবিলের ওপর চট্টগ্রামের বাকলিয়ার ট্রানজিট ম্যাপ মেলে ধরে রেশমা।\n\nরেশমা হিসাবের খাতা বন্ধ কইরা তাকায় — “সবকিছু ঢাকার ভিতর দিয়া কেন যাবে যখন বাকালিয়া নিজেই দাঁড়াইতে পারে? তুমি রিস্ক হিসাব করো রফিক... আমি অপরচুনিটি হিসাব করি।”",
     choices: [
       {
         key: 'A',
@@ -1072,7 +1072,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-07',
     archiveIds: ['A-10'],
     getSetupText: () =>
-      "On the small CRT television in the tea stall, more than a hundred yaba godfathers file onto a ceremonial stage in Teknaf to surrender before the Home Minister. That midnight, Shuvo calls. 'The big men gave up their names so the small men can pay double,' he rasps. 'Nothing has changed on the highway, Rafiq, except the price of breathing.'",
+      "টেকনাফে স্বরাষ্ট্রমন্ত্রীর সামনে একশ’র বেশি গডফাদারের সারেন্ডারের দৃশ্য চায়ের দোকানের টিভিতে ভেসে ওঠে। মধ্যরাতে শুভর ফোন আসে।\n\nশুভ ফোনের ওপাশ থিকা ঠান্ডা গলায় কয় — “বড় গডফাদাররা টেকনাফে সারেন্ডার কইরাছে... তাই ছোট খেলোয়াড়দের দ্বিগুণ দিতে হয়। হাইওয়েতে কিছুই বদলায় নাই রফিক, শুধু শ্বাস নেওয়ার দাম বাড়ছে।”",
     choices: [
       {
         key: 'A',
@@ -1138,7 +1138,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       {
         key: 'C',
         label: 'দারোগা হককে দিয়ে শুভর সাথে সমঝোতা (Broker peace with Haque)',
-        resultText: 'Haque takes it and calls it a favour.',
+        resultText: 'হক নোটের বান্ডিল ঠেলিয়া দিয়া কয় — “এটাকে দুই ভদ্রলোকের মধ্যে একটা ফেভার হিসাবে নাও।”',
         isAvailable: (state) => {
           const price = state.flags.haqueOwnsYou ? 15000 : 10000;
           if (state.flags.informedOnShuvo) {
@@ -1165,7 +1165,7 @@ export const SCENES: Record<string, SceneDefinition> = {
                 shuvoStatus: 'peace',
               },
             },
-            resultText: 'Haque takes it and calls it a favour.',
+            resultText: 'হক নোটের বান্ডিল ঠেলিয়া দিয়া কয় — “এটাকে দুই ভদ্রলোকের মধ্যে একটা ফেভার হিসাবে নাও।”',
             nextSceneId: 'S4-4',
           };
         },
@@ -1184,7 +1184,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-08',
     archiveIds: ['A-11'],
     getSetupText: () =>
-      "COVID-19 closes the country. Police are pulled to quarantine checkpoints and relief lines. In the alleys, a tablet sells for 250 to 300 taka. But half of Mirpur is starving without daily wage work. Noyon says: 'The rickshaw pullers have nothing to feed their children, Rafi. What good is all this money if we just watch them starve?'",
+      "করোনায় পুরো দেশ লকডাউন। গলিতে এক পিস ইয়াবা বিক্রি হয় ২৫০ থেকে ৩০০ টাকায়। কিন্তু কাজ ছাড়া মিরপুরের বহু পরিবারে খাবার নাই।\n\nনয়ন লকডাউনের সময় গলির দিকে তাকাইয়া কয় — “রিকশাওয়ালাদের ঘরে বাচ্চাগুলার খাওয়ার কিছু নাই রফি। এত টাকা দিয়া কী হবে যদি চোখের সামনে গলিটার মানুষ না খাইয়া মরে?”",
     choices: [
       {
         key: 'A',
@@ -1265,7 +1265,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-09',
     archiveIds: ['A-12'],
     getSetupText: () =>
-      "One week after Major Sinha is shot dead at the Shamlapur checkpoint and the word gunfight dominates every headline, a carrier in Rafiq's network is caught skimming. Noyon pleads: 'We should talk to his father, Rafi. You didn't use to solve problems like this.' Kalam casually leans an iron rod against the wooden bench: 'Why make it complicated? One afternoon in the back of a microbus and the entire highway stays honest.'",
+      "মেজর সিনহা হত্যাকাণ্ডের পর যখন চারদিকে বন্দুকযুদ্ধের খবর, তখন রফিকের নেটওয়ার্কের এক লাইনম্যান টাকা চুরি করতে গিয়ে ধরা পড়ে।\n\nনয়ন কালামের প্রস্তাব শুনিয়া মাথা নাড়াইয়া কয় — “ওর বাবার লগে কথা বলা উচিত রফি। তুই আগে এভাবে সমস্যা সমাধান করতিস না।”\n\nকালাম ঠান্ডা চোখে তাকাইয়া কয় — “কাম সোজা থাকতে প্যাচান ক্যান ভাই? এক দুপুর মাইক্রোবাসের পিছে কাটাইয়া আসলেই পুরা হাইওয়ে সোজা হইয়া যাইব।”",
     choices: [
       {
         key: 'A',
@@ -1470,7 +1470,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-10',
     archiveIds: ['A-13'],
     getSetupText: () =>
-      "Following the August 2024 political upheaval, police stations across Dhaka stand burned or half-empty. Traffic police are gone; student volunteers manage intersections in helmets. In the shadows, the drug lines run wide open, and crystal meth ('ice') floods the vacant supply chain. Inspector Haque calls on an encrypted burner, his voice exhausted and predatory: 'The uniform is off for now, Rafiq. But the files never burn.'",
+      "২০২৪-এর আগস্টের পর ঢাকার থানাগুলো পুড়ে ছাই। রাস্তায় ট্রাফিক পুলিশ নাই, মাথায় হেলমেট পরা ছাত্ররা মোড় সামলায়। শূন্য রাস্তায় বরফ (আইস) আর ইয়াবার লাইন উন্মুক্ত।\n\nএনক্রিপ্টেড বার্নার ফোনে ইন্সপেক্টর হক আস্তে কয় — “ইউনিফর্ম এখন খোলা রফিক। কিন্তু ফাইল কখনো পোড়ে না।”",
     choices: [
       {
         key: 'A',
@@ -1550,7 +1550,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     tickerId: 'T-11',
     archiveIds: ['A-14'],
     getSetupText: () =>
-      "Noyon brings a twelve-year-old boy in a torn school shirt to the warehouse door. The boy is clutching a parcel of pink tablets behind his back, shivering. Rafiq looks at him and asks: 'How old are you?' The boy whispers: 'Twelve.' The room falls into dead silence. Rafiq was twelve when his father was crushed in the workshop and the debt began. Noyon stands in the doorway, staring straight through Rafiq: 'Look at him, Rafi. Look at who you became.'",
+      "ছেঁড়া স্কুল শার্ট পরা বারো বছরের এক বাচ্চাকে গুদামের দরজায় নিয়ে আসে নয়ন। ছেলেটা পেছনে এক প্যাকেট গোলাপি ট্যাবলেট আঁকড়ে ধরে শীতে কাঁপছে।\n\nরফিক বারো বছরের ছেলেটার দিকে তাকাইয়া জিজ্ঞাসা করে — “তোর বয়স কত?”\nছেলেটা চোখ নামিয়া কয় — “বারো।”\nরফিক নিজেও বারো বছরের ছিল যখন কারখানায় বাবার হাত গুঁড়ো হয়ে ঋণ শুরু হয়েছিল।\n\nনয়ন এক পা এগাইয়া আস্তে কয় — “ওর দিকে তাকা রফি। তুই কী হইয়া গেছিস দেখ।”",
     choices: [
       {
         key: 'A',
@@ -1626,7 +1626,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     factTag: 'real',
     tickerId: 'T-12',
     getSetupText: () =>
-      "November 2025. A rented, humid room near Shah Amanat Bridge in Chattogram. The highway hums outside in the dark. Beside the bed sits a duffel bag of bank packets and an unread SMS from an old number in Mirpur. Footsteps pause on the wooden landing outside. A slow, heavy knock echoes through the door.",
+      "২০২৫ সালের নভেম্বর। চট্টগ্রামের শাহ আমানত ব্রিজের কাছে একটা স্যাঁতসেঁতে ভাড়া ঘর। অন্ধকারে বাইরে হাইওয়ের গাড়ি চলার শব্দ। বিছানার পাশে টাকার বান্ডিলভর্তি ডাফল ব্যাগ আর মিরপুরের এক পুরনো নম্বর থেকে আসা অপঠিত এসএমএস। কাঠের পাটাতনে কারও ভারী পায়ের আওয়াজ থেমে যায়।\n\nরাতের বেলা শাহ আমানত ব্রিজের কাছে ভাড়া করা ঘরের দরজায় ভারী নক পড়ে।",
     choices: [
       {
         key: 'A',
