@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2026-10-25
 ### Added
+- Agent Voice, Dialect & Tone System Prompt (`AGENTS_PROMPT_GUIDE.md`).
 - Canonical Narrative & Game Design Foundation (`CANONICAL_DESIGN.md`).
 - Multi-dimensional Relationship Trajectory specification for Amena, Noyon, Reshma, Kalam, Babu, and the clean touchstone relationship.
 - Evolving Psychological Ledger specification (Ages 14, 18, 22, 26).

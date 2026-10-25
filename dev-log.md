@@ -69,3 +69,12 @@
 - Re-architected `LedgerModal.tsx` into the evocative typewriter-style Psychological Ledger balance sheet with status badges and redacted metrics.
 - Integrated Relationships viewer into both Header and Pause Menu with keyboard and click navigation.
 - Verified all 7 automated reference playthrough tests pass with exact parity; production build generated cleanly.
+
+## [2026-10-25 15:15:00] Creation of Agent Voice, Dialect & Tone System Prompt
+- Authored `AGENTS_PROMPT_GUIDE.md` defining the dialect architecture and character vocal profiles:
+  - Pronoun registers (তুই vs. তুমি vs. আপনি).
+  - Authentic vocabulary (mal, puriya, dyl, baba, guti, chakki, khep, line, hundi, thana, gunfight, khata).
+  - Character emotional tones: Amena (weary maternal devotion and devastating silence), Noyon (moral memory and childhood "Rafi"), Kalam (cold, seductive convenience of violence), Reshma (calculative, opportunity-focused ambition), Babu (cynical street fixer), Shirin (clean, uncorrupted touchstone), Inspector Haque (smooth, institutional extortion).
+  - Directorial rules for writing aggressive, emotional, and romantic scenes.
+- Updated `context.md` to reference `AGENTS_PROMPT_GUIDE.md`.
+- Staged, committed, and pushed changes to remote `origin/main`.

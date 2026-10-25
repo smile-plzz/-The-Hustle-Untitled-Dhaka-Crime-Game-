@@ -1,7 +1,7 @@
 # Context & Specifications
 
 ## Goals
-Implement "The Hustle" (Untitled Dhaka Crime Game) according to the authoritative Game Design and Development Document (GDD) and the canonical narrative and game design foundation in [CANONICAL_DESIGN.md](./CANONICAL_DESIGN.md).
+Implement "The Hustle" (Untitled Dhaka Crime Game) according to the authoritative Game Design and Development Document (GDD), the canonical narrative foundation in [CANONICAL_DESIGN.md](./CANONICAL_DESIGN.md), and the dialect, voice, and narrative tone system prompt in [AGENTS_PROMPT_GUIDE.md](./AGENTS_PROMPT_GUIDE.md).
 
 ## Core Philosophy
 > **Rafiq does not become a criminal because he suddenly becomes evil. He becomes one because, year after year, the most rational option in front of him becomes slightly worse.**
