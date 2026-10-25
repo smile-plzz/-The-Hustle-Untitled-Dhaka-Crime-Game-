@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-10-25
+### Changed
+- Rebalanced game presentation to sleek Dhaka Noir aesthetic: sleek English narrative prose and UI with authentic Dhakaiya spoken dialogues and local slang in Bengali.
+- Reverted UI components back to clean English:
+  - Header: `MONEY`, `LOYALTY`, `HEAT`, `MORALITY`, `CREW`, and nav buttons (`Timeline`, `Relationships`, `Archive`, `Sources`, `Menu`).
+  - Pause Menu: `PAUSED`, `Resume Game`, `Save / Load Game`, `Historical Archive`, `Dual Timeline`, `Relationships & Moral Memory`, audio & CRT toggles.
+  - Save/Load Modal: `Save Progress`, `Load Game`, slot information.
+  - Scene Player: `Real Events`, `Fictional`, `What's the history?`.
+  - Ending Screen: `FINAL RESOLUTION`, `THE OUTCOME`, `WHAT BECAME OF THEM`, `FINAL RECORD`, ending badges, and action buttons.
+  - Psychological Ledger: English accounting metrics (`Medical Debt`, `Cash in Hand`, `Police`, `Mother`, `Suppliers`, `Crew`, etc.).
+- Reverted third-person narrative setups (`getSetupText`), outcome notices, and choice action descriptions to evocative noir English.
+- Preserved in authentic Dhakaiya Bengali script: All spoken character dialogue lines (`“...”`) and cultural slang (*dyl*, *yaba*, *guti*, *bhai*, *chacha*, *Daroga*, *thana*, *khep*, *mal*, etc.).
+
 ## [0.4.0] - 2026-10-25
 ### Added
 - Authentic local Dhakaiya Bengali dialogue lines wired across all scenes in Stages 1 through 5 (`storyData.ts`).

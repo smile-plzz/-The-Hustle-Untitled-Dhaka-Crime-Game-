@@ -120,3 +120,23 @@
 - Build & Test Verification:
   - `npm test`: 7/7 reference playthrough tests passed with 100% exact parity.
   - `npm run build`: Zero errors, production bundle compiled cleanly in `dist/`.
+
+## [2026-10-25 16:25:00] Rebalancing Language: English UI & Narration with Dhakaiya Dialogues & Slang
+- Task: Respond to user requirement: *"everything is too bangla only keep the dialouges bangla and slang word and special words in bangla"*.
+- Balanced Presentation:
+  - Restored UI components, HUD stats, menus, and modals to clean, crisp English noir aesthetics:
+    - `Header.tsx`: `MONEY`, `LOYALTY`, `HEAT`, `MORALITY`, `CREW`, and nav buttons (`Timeline`, `Relationships`, `Archive`, `Sources`, `Menu`).
+    - `PauseMenu.tsx`: `PAUSED`, `Resume Game`, `Save / Load Game`, `Historical Archive`, `Dual Timeline`, `Relationships & Moral Memory`, `Documentary Sources`, audio and CRT scanline toggles.
+    - `SaveLoadModal.tsx`: `Save Progress`, `Load Game`, slot status.
+    - `ScenePlayer.tsx`: Fact tag badges (`Real Events`, `Fictional`), history question link (`What's the history?`).
+    - `EndingScreen.tsx`: `FINAL RESOLUTION`, `THE OUTCOME`, `WHAT BECAME OF THEM`, `FINAL RECORD`, ending badges, and action buttons.
+  - Restored third-person narrative prose in `getSetupText`, outcome summaries, and choice action descriptions across all 21 scenes to evocative English Dhaka Noir prose.
+  - Restored `archiveData.ts` News Tickers (`T-01` to `T-12`) to punchy English news wire format.
+  - Restored Stage Psychological Ledger metrics to clean English labels (`Medical Debt`, `Cash in Hand`, `Police: Watching`, `Mother: Withdrawn / Walton Refrigerator hums`, `Suppliers: 3 Highway Depots`, `Crew: 17 Active Runners`, etc.).
+  - Preserved in authentic Dhakaiya Bengali script:
+    - All character spoken dialogues (`“...”`) across all scenes in Stages 1 through 5.
+    - Cultural and street slang (*dyl* / ডাইল, *yaba* / ইয়াবা, *baba* / বাবা, *guti* / গুটি, *khep* / খেপ, *mal* / মাল, *Daroga*, *thana*, *bosti*, *lungi*, *adda*, *hartal*).
+- Build & Test Verification:
+  - `npm test`: All 7 reference playthrough tests (R, K, C, X, G, F, S) passed in 28ms with 100% exact parity.
+  - `npm run build`: `tsc && vite build` completed in 3.22s with zero warnings/errors.
+- Remote Git Synchronization: Staged and committed changes, pushed to `origin/main`.
