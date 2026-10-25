@@ -73,12 +73,12 @@ export const ScenePlayer: React.FC<ScenePlayerProps> = ({
             {scene.factTag === 'real' ? (
               <>
                 <ShieldCheck size={12} className="inline mr-1" />
-                Based on real events
+                বাস্তব ঘটনা (Real Events)
               </>
             ) : (
               <>
                 <Feather size={12} className="inline mr-1" />
-                Fictional
+                কাল্পনিক (Fictional)
               </>
             )}
           </span>
@@ -91,7 +91,7 @@ export const ScenePlayer: React.FC<ScenePlayerProps> = ({
               title="Read verified historical reporting for this event"
             >
               <HelpCircle size={14} />
-              <span>What's the history?</span>
+              <span>ইতিহাস কী বলে? (What's the history?)</span>
             </button>
           )}
         </div>

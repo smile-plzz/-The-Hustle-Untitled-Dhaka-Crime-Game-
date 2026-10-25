@@ -55,29 +55,29 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button onClick={onOpenTimeline} className="btn-icon" title="Timeline">
             <Clock size={16} />
-            <span className="btn-label-desktop">Timeline</span>
+            <span className="btn-label-desktop">ঘটনাক্রম (Timeline)</span>
           </button>
 
           <button onClick={onOpenRelationships} className="btn-icon" title="Relationships & Moral Memory">
             <Users size={16} />
-            <span className="btn-label-desktop">Relationships</span>
+            <span className="btn-label-desktop">সম্পর্ক (Relationships)</span>
           </button>
 
           <button onClick={onOpenArchive} className="btn-icon" title="Historical Archive">
             <BookOpen size={16} />
             <span className="btn-label-desktop">
-              Archive ({unlockedArchiveIds.length}/15)
+              আর্কাইভ ({unlockedArchiveIds.length}/15)
             </span>
           </button>
 
           <button onClick={onOpenSources} className="btn-icon" title="Historical Sources">
             <FileText size={16} />
-            <span className="btn-label-desktop">Sources</span>
+            <span className="btn-label-desktop">উৎস (Sources)</span>
           </button>
 
           <button onClick={onOpenMenu} className="btn-icon" title="Menu">
             <Menu size={16} />
-            <span className="btn-label-desktop">Menu</span>
+            <span className="btn-label-desktop">মেনু (Menu)</span>
           </button>
         </div>
       </div>
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="stats-bar">
         {/* Money */}
         <div className="stat-item stat-money" title="Current accumulated wealth">
-          <span className="stat-label">MONEY</span>
+          <span className="stat-label">টাকা (MONEY)</span>
           <span className="stat-value">৳ {stats.money.toLocaleString()}</span>
         </div>
 
@@ -94,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="stat-header">
             <span className="stat-label">
               <Users size={13} className="inline mr-1" />
-              LOYALTY
+              আনুগত্য (LOYALTY)
             </span>
             <span className="stat-value">{stats.loyalty}/100</span>
           </div>
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="stat-header">
             <span className="stat-label">
               <ShieldAlert size={13} className="inline mr-1" />
-              HEAT
+              নজরদারি (HEAT)
             </span>
             <span className="stat-value">{stats.heat}/100</span>
           </div>
@@ -131,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="stat-header">
             <span className="stat-label">
               <Heart size={13} className="inline mr-1" />
-              MORALITY
+              নৈতিকতা (MORALITY)
             </span>
             <span className="stat-value">{stats.morality}/100</span>
           </div>
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Crew Status if in Stage 4 or 5 */}
         {isStage4Or5 && (
           <div className="stat-item stat-crew" title="Crew individual loyalties">
-            <span className="stat-label">CREW</span>
+            <span className="stat-label">দলবল (CREW)</span>
             <div className="crew-badges">
               <span className="crew-chip">
                 Noyon: <strong>{crew.noyon}</strong>

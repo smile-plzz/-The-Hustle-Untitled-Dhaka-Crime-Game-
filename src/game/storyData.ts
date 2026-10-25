@@ -1,11 +1,11 @@
 import { SceneDefinition, StageLedgerData } from '../types';
 
 export const ERA_BANNERS: Record<number, { text: string }> = {
-  1: { text: 'Mirpur, Dhaka. 2013. Rafiq is 14.' },
-  2: { text: 'Mirpur, Kalshi and Jhilpar areas. 2015. Rafiq is 16.' },
-  3: { text: 'Mirpur and Jatrabari. 2017. Rafiq is 18.' },
-  4: { text: 'Jatrabari, Chattogram and Teknaf. 2019. Rafiq is 20.' },
-  5: { text: 'Dhaka and Chattogram. 2023. Rafiq is 24.' },
+  1: { text: 'মিরপুর, ঢাকা। ২০১৩ সাল। রফিকের বয়স ১৪। (Mirpur, Dhaka. 2013. Age 14)' },
+  2: { text: 'মিরপুর, কালশী ও ঝিলপাড়। ২০১৫ সাল। রফিকের বয়স ১৬। (Kalshi & Jhilpar. 2015. Age 16)' },
+  3: { text: 'মিরপুর ও যাত্রাবাড়ী। ২০১৭ সাল। রফিকের বয়স ১৮। (Mirpur & Jatrabari. 2017. Age 18)' },
+  4: { text: 'যাত্রাবাড়ী, চট্টগ্রাম হাইওয়ে ও টেকনাফ। ২০১৯ সাল। রফিকের বয়স ২০। (Jatrabari, Highway & Teknaf. 2019. Age 20)' },
+  5: { text: 'ঢাকা ও চট্টগ্রাম। ২০২৩–২০২৫ সাল। রফিকের বয়স ২৪–২৬। (Dhaka & Chattogram. 2023–2025. Age 24–26)' },
 };
 
 export const SCENES: Record<string, SceneDefinition> = {
@@ -25,7 +25,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'I will find the money, Ma.',
+        label: 'টাকা আমি জোগাড় করব, মা। (I will find the money, Ma.)',
         resultText: 'Amena nods and says nothing. She does not believe it yet.',
         execute: (state) => ({
           state: {
@@ -41,7 +41,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'That is not something I can fix.',
+        label: 'এইটা তো আমার পক্ষে ঠিক করা সম্ভব না। (That is not something I can fix.)',
         resultText: 'The door closes softly. It is worse than a slam.',
         execute: (state) => ({
           state: {
@@ -64,15 +64,15 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 1,
     year: '2013',
     month: 'June',
-    locationName: 'Gudaraghat Bazar area',
-    locationArea: 'Mirpur-1',
+    locationName: 'গুদারাঘাট বাজার এলাকা (Gudaraghat Bazar)',
+    locationArea: 'Mirpur-1, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
       "Babu, two years older and always near the tea stalls, notices Rafiq's haunted face. In the lane, Shirin and two schoolgirls walk past with heavy backpacks, talking about coaching exams. Babu taps Rafiq on the shoulder and offers 200 taka to carry a small wrapped parcel three lanes away to a mechanic shop. No questions asked.",
     choices: [
       {
         key: 'A',
-        label: 'Accept the delivery',
+        label: 'পার্সেলটা ডেলিভারি দেওয়া (Accept the delivery)',
         resultText: 'The package is light. The 200 taka is not.',
         execute: (state) => ({
           state: {
@@ -90,7 +90,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Refuse and ask for a normal job',
+        label: 'না করে দিয়ে সাধারণ কাজের খোঁজ করা (Refuse and ask for normal job)',
         resultText: "Babu laughs, not unkindly. 'Normal jobs pay in a month. Think about it.'",
         execute: (state) => ({
           state: {
@@ -113,15 +113,15 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 1,
     year: '2013',
     month: 'June',
-    locationName: 'Home',
-    locationArea: 'Mirpur-1',
+    locationName: 'মিরপুরের ঘর (Home)',
+    locationArea: 'Mirpur-1, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
       'The hospital sends a final red notice. The medicine shop cuts off their credit. Babu is at the door with a bigger offer: 500 taka. There is one choice.',
     choices: [
       {
         key: 'A',
-        label: 'Take it',
+        label: 'টাকাটা নিয়ে নেওয়া (Take it)',
         resultText: 'Rafiq takes it. Babu does not say I told you so.',
         execute: (state) => ({
           state: {
@@ -146,7 +146,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 1,
     year: '2013',
     month: 'July',
-    locationName: 'Mirpur',
+    locationName: 'মিরপুর (Mirpur)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
@@ -154,7 +154,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Give it all to Amena',
+        label: 'সব টাকা আমেনাকে দিয়ে দেওয়া (Give it all to Amena)',
         resultText: 'She asks no question, and that is how he knows she suspects something.',
         execute: (state) => {
           const X = state.stats.money;
@@ -175,7 +175,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Give half and keep half',
+        label: 'অর্ধেক আমেনাকে দেওয়া, অর্ধেক রাখা (Give half and keep half)',
         resultText: 'Half is honest enough, he tells himself.',
         execute: (state) => {
           const X = state.stats.money;
@@ -196,7 +196,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Keep it all and say it came from tutoring',
+        label: 'পুরোটা নিজের কাছে রেখে টিউশনির টাকা বলা (Keep it all; lie about tutoring)',
         resultText: 'The lie comes easily, which is the problem.',
         execute: (state) => ({
           state: {
@@ -220,7 +220,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 2,
     year: '2015',
     month: 'March',
-    locationName: 'Mirpur Kalshi area',
+    locationName: 'কালশী ও ঝিলপাড় (Kalshi & Jhilpar)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     archiveIds: ['A-04'],
@@ -229,7 +229,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Known buyers only',
+        label: 'চেনা খরিদ্দারের কাছে বিক্রি (Known buyers only)',
         resultText: 'Slow money and quiet lanes.',
         execute: (state) => ({
           state: {
@@ -246,7 +246,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Sell to strangers for faster cash',
+        label: 'অচেনা খরিদ্দারের কাছে দ্রুত বিক্রি (Sell to strangers for faster cash)',
         resultText: 'The money is faster. So are the looks.',
         execute: (state) => ({
           state: {
@@ -269,7 +269,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 2,
     year: '2015',
     month: 'September',
-    locationName: 'Mirpur',
+    locationName: 'মিরপুরের গলি (Mirpur Alleys)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
@@ -277,7 +277,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Let him have it on credit',
+        label: 'তানভীরকে বাকি দেওয়া (Let him have it on credit)',
         resultText: 'Rafiq keeps the amount in his head, not in a book.',
         execute: (state) => ({
           state: {
@@ -298,7 +298,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Refuse, cash only',
+        label: 'না করে দেওয়া, নগদ ছাড়া বাকি নাই (Refuse, cash only)',
         resultText: 'Tanvir walks away. Rafiq makes a sale elsewhere that day.',
         execute: (state) => ({
           state: {
@@ -321,7 +321,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 2,
     year: '2016',
     month: 'February',
-    locationName: 'Market lane',
+    locationName: 'বাজারের গলি (Market lane)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     onEnter: (state) => {
@@ -357,7 +357,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Run',
+        label: 'দৌড়ে পালিয়ে যাওয়া (Run)',
         resultText: 'Rafiq leaves the buyer standing there and does not look back.',
         execute: (state) => ({
           state: {
@@ -373,7 +373,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Talk his way out: it was for my cousin',
+        label: 'মিষ্টি কথায় সামলানো: খালাতো ভাইয়ের জন্য (Talk his way out)',
         resultText: 'The shopkeeper half believes him, which is enough.',
         execute: (state) => ({
           state: {
@@ -396,7 +396,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 2,
     year: '2016',
     month: 'October',
-    locationName: 'Rail-line tea stall',
+    locationName: 'রেললাইন চা স্টল (Rail-line tea stall)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'real',
     tickerId: 'T-02',
@@ -406,7 +406,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Carry it',
+        label: 'ফেনসিডিলও টানতে রাজি হওয়া (Carry the syrup)',
         resultText: 'Rafiq tells himself it is only cough syrup.',
         execute: (state) => ({
           state: {
@@ -424,7 +424,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Refuse',
+        label: 'না করে শুধু ঘাসে থাকা (Refuse)',
         resultText: 'Babu shrugs, but he remembers.',
         execute: (state) => ({
           state: {
@@ -447,7 +447,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 2,
     year: '2017',
     month: 'April',
-    locationName: 'Home',
+    locationName: 'মিরপুরের বাড়ি (Home)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
@@ -455,7 +455,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Lie: a part-time job at a shop',
+        label: 'মিথ্যে বলা: দোকানে পার্ট-টাইম কাজ পাইছি (Lie: shop job)',
         resultText: 'She lets it go, and he sees that it costs her something.',
         execute: (state) => {
           const ledger: StageLedgerData = {
@@ -465,11 +465,11 @@ export const SCENES: Record<string, SceneDefinition> = {
             text: 'The hospital debt is paid. Nobody says where the last of it came from.',
             nextSceneId: 'S3-1',
             metrics: [
-              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
-              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
-              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
-              { label: 'AMENA', value: 'SUSPICIOUS', statusClass: 'warning' },
-              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+              { label: 'চিকিৎসা ঋণ (Medical Debt)', value: '৳০ (পরিশোধিত / PAID)', statusClass: 'safe' },
+              { label: 'হাতে নগদ (Cash)', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'পুলিশ প্রশাসন (Police)', value: 'নজরদারি (WATCHING)', statusClass: 'warning' },
+              { label: 'আমেনা (Mother)', value: 'সন্দেহপ্রবণ (SUSPICIOUS)', statusClass: 'warning' },
+              { label: 'নয়ন (Noyon)', value: 'চিন্তিত (CONCERNED)', statusClass: 'warning' },
             ],
           };
           return {
@@ -488,7 +488,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Half-truth: I help Babu with deliveries',
+        label: 'অর্ধসত্য বলা: বাবুকে সাহায্য করি (Half-truth: help Babu)',
         resultText: 'She hears what she needs to hear.',
         execute: (state) => {
           const ledger: StageLedgerData = {
@@ -498,11 +498,11 @@ export const SCENES: Record<string, SceneDefinition> = {
             text: 'The hospital debt is paid. Nobody says where the last of it came from.',
             nextSceneId: 'S3-1',
             metrics: [
-              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
-              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
-              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
-              { label: 'AMENA', value: 'SUSPICIOUS', statusClass: 'warning' },
-              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+              { label: 'চিকিৎসা ঋণ (Medical Debt)', value: '৳০ (পরিশোধিত / PAID)', statusClass: 'safe' },
+              { label: 'হাতে নগদ (Cash)', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'পুলিশ প্রশাসন (Police)', value: 'নজরদারি (WATCHING)', statusClass: 'warning' },
+              { label: 'আমেনা (Mother)', value: 'সন্দেহপ্রবণ (SUSPICIOUS)', statusClass: 'warning' },
+              { label: 'নয়ন (Noyon)', value: 'চিন্তিত (CONCERNED)', statusClass: 'warning' },
             ],
           };
           return {
@@ -521,7 +521,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Tell the truth',
+        label: 'সত্যিটা স্বীকার করা (Tell the truth)',
         execute: (state) => {
           const moralEnough = state.stats.morality >= 50;
           const resultText = moralEnough
@@ -535,11 +535,11 @@ export const SCENES: Record<string, SceneDefinition> = {
             text: 'The hospital debt is paid. Nobody says where the last of it came from.',
             nextSceneId: 'S3-1',
             metrics: [
-              { label: 'MEDICAL DEBT', value: '৳0 (PAID)', statusClass: 'safe' },
-              { label: 'CASH', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
-              { label: 'POLICE', value: 'WATCHING', statusClass: 'warning' },
-              { label: 'AMENA', value: moralEnough ? 'AWARE & HURT' : 'WITHDRAWN', statusClass: 'warning' },
-              { label: 'NOYON', value: 'CONCERNED', statusClass: 'warning' },
+              { label: 'চিকিৎসা ঋণ (Medical Debt)', value: '৳০ (পরিশোধিত / PAID)', statusClass: 'safe' },
+              { label: 'হাতে নগদ (Cash)', value: `৳${(state.stats.money + 4000).toLocaleString()}`, statusClass: 'neutral' },
+              { label: 'পুলিশ প্রশাসন (Police)', value: 'নজরদারি (WATCHING)', statusClass: 'warning' },
+              { label: 'আমেনা (Mother)', value: moralEnough ? 'আহত ও ব্যথিত (AWARE & HURT)' : 'মুখ বন্ধ (WITHDRAWN)', statusClass: 'warning' },
+              { label: 'নয়ন (Noyon)', value: 'চিন্তিত (CONCERNED)', statusClass: 'warning' },
             ],
           };
           return {
@@ -576,7 +576,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Accept and start with yaba',
+        label: 'ইয়াবার সাব-ডিস্ট্রিবিউশনে নামা (Accept and start with yaba)',
         resultText: 'Shuvo smiles. Rafiq does not take anything himself and tells himself that matters.',
         execute: (state) => ({
           state: {
@@ -598,7 +598,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Decline and stay with weed',
+        label: 'প্রস্তাব ফিরিয়ে শুধু ঘাসে থাকা (Decline and stay with weed)',
         resultText: 'Shuvo says the offer will not come twice.',
         execute: (state) => ({
           state: {
@@ -624,7 +624,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2018',
     month: 'May',
-    locationName: 'Jhilpar area',
+    locationName: 'ঝিলপাড় বস্তি ও ফাঁড়ি (Jhilpar area)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'real',
     tickerId: 'T-04',
@@ -634,7 +634,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Offer a 2,000 taka bribe',
+        label: 'দারোগা হককে ২,০০০ টাকা ঘুষ দেওয়া (Offer 2,000 Tk bribe)',
         resultText: "Haque counts it without looking down. 'Good. Walk.'",
         isAvailable: (state) => ({
           available: state.stats.money >= 2000,
@@ -659,7 +659,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Refuse and run',
+        label: 'দৌড়ে পালানোর চেষ্টা করা (Refuse and run)',
         resultText: 'Rafiq runs.',
         execute: (state) => {
           const highHeat = state.stats.heat >= 30;
@@ -692,7 +692,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Give Haque a name instead',
+        label: "দারোগাকে শুভর নাম দিয়ে দেওয়া (Give Haque Shuvo's name)",
         resultText: "Haque writes it down. The name is Shuvo's.",
         execute: (state) => ({
           state: {
@@ -719,7 +719,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2018',
     month: 'May',
-    locationName: 'Jhilpar Outpost (Lockup)',
+    locationName: 'ঝিলপাড় ফাঁড়ি হাজত (Jhilpar Outpost Lockup)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
@@ -751,7 +751,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2018',
     month: 'June',
-    locationName: 'Home',
+    locationName: 'মিরপুরের বাড়ি (Home)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'fictional',
     getSetupText: (state) => {
@@ -764,7 +764,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Confess everything and promise to stop',
+        label: 'সব স্বীকার করে ছেড়ে দেওয়ার ওয়াদা (Confess & promise to stop)',
         resultText: 'She cries and he promises. It is the truest thing he says that year.',
         execute: (state) => ({
           state: {
@@ -785,7 +785,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Deny it and shout',
+        label: 'অস্বীকার করে মেজাজ দেখানো (Deny it and shout)',
         resultText: 'She stops asking. That is worse.',
         execute: (state) => ({
           state: {
@@ -802,7 +802,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Confess, but say the family needs the money',
+        label: 'সংসারের খরচের কথা বলে বাস্তবতা বোঝানো (Confess: family needs money)',
         resultText: 'She is quiet for a long time. Then she asks him to be careful.',
         execute: (state) => ({
           state: {
@@ -825,7 +825,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2018',
     month: 'October',
-    locationName: 'Mirpur',
+    locationName: 'মিরপুর (Mirpur)',
     locationArea: 'Mirpur, Dhaka',
     factTag: 'real',
     archiveIds: ['A-07'],
@@ -834,7 +834,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Pay his 5,000 taka bail',
+        label: 'বাবুর জামিনের ৫,০০০ টাকা দিয়ে দেওয়া (Pay his 5,000 Tk bail)',
         resultText: 'Babu does not forget it.',
         isAvailable: (state) => ({
           available: state.stats.money >= 5000,
@@ -859,7 +859,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Ask Haque to make it go away',
+        label: 'দারোগা হককে দিয়ে মামলা থামানো (Ask Haque to make it go away)',
         resultText: 'Haque makes a call. Now he knows what Rafiq will do for a friend.',
         execute: (state) => ({
           state: {
@@ -880,7 +880,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Do nothing',
+        label: 'কিছু না করে চুপ থাকা (Do nothing)',
         resultText: 'Nobody in Mirpur says Babu\'s name around Rafiq again.',
         execute: (state) => ({
           state: {
@@ -907,7 +907,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 3,
     year: '2018',
     month: 'December',
-    locationName: "Rafiq's room",
+    locationName: "মিরপুরের ঘর (Rafiq's room)",
     locationArea: 'Mirpur, Dhaka',
     factTag: 'real',
     tickerId: 'T-05',
@@ -941,11 +941,11 @@ export const SCENES: Record<string, SceneDefinition> = {
               : 'Steady weed trade across quiet Mirpur lanes.',
           nextSceneId: 'S4-1',
           metrics: [
-            { label: 'CASH', value: `৳${updatedTotal.toLocaleString()}`, statusClass: 'neutral' },
-            { label: 'TRADE', value: state.flags.trade.toUpperCase(), statusClass: state.flags.trade === 'yaba' ? 'danger' : 'warning' },
-            { label: 'AMENA', value: 'WITHDRAWN (THE REFRIGERATOR HUMS)', statusClass: 'warning' },
-            { label: 'POLICE', value: state.flags.haqueOwnsYou ? 'HAQUE HOLDS LEVERAGE' : 'PATROLS ACTIVE', statusClass: 'danger' },
-            { label: 'BABU', value: state.flags.babuStatus.toUpperCase(), statusClass: 'neutral' },
+            { label: 'হাতে নগদ (Cash)', value: `৳${updatedTotal.toLocaleString()}`, statusClass: 'neutral' },
+            { label: 'ব্যবসা (Trade)', value: state.flags.trade === 'yaba' ? 'ইয়াবা নেটওয়ার্ক (YABA)' : 'গাঁজা (WEED)', statusClass: state.flags.trade === 'yaba' ? 'danger' : 'warning' },
+            { label: 'আমেনা (Mother)', value: 'মুখ বন্ধ / ফ্রিজ চলছে (WITHDRAWN / REFRIGERATOR HUMS)', statusClass: 'warning' },
+            { label: 'পুলিশ প্রশাসন (Police)', value: state.flags.haqueOwnsYou ? 'হক ব্ল্যাকমেইল করতেছে (HAQUE HOLDS LEVERAGE)' : 'টহল অব্যাহত (PATROLS ACTIVE)', statusClass: 'danger' },
+            { label: 'বাবু (Babu)', value: state.flags.babuStatus.toUpperCase(), statusClass: 'neutral' },
           ],
         };
         return {
@@ -962,7 +962,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 4,
     year: '2019',
     month: 'February',
-    locationName: 'Warehouse near Dhaka-Chattogram highway',
+    locationName: 'যাত্রাবাড়ী ওয়্যারহাউজ (Jatrabari warehouse)',
     locationArea: 'Jatrabari, Dhaka',
     factTag: 'real',
     tickerId: 'T-06',
@@ -975,7 +975,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       return `Rafiq rents the back half of a warehouse in Jatrabari off the highway. Noyon arrives first, carrying tea and looking at the steel shutters. Then Reshma, sharp and quick with numbers, carrying a ledger of highway delivery timings. Then Kalam, older, silent, scars on his knuckles from Kashimpur jail. In the doorway, ${babuLine} Noyon looks at the money crates, looks at Rafiq, and murmurs under his breath: 'Rafi...'`;
     },
     autoContinue: {
-      buttonLabel: 'Continue',
+      buttonLabel: 'এগিয়ে যান (Continue)',
       nextSceneId: () => 'S4-2',
       onContinue: (state) => ({
         ...state,
@@ -993,15 +993,15 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 4,
     year: '2019',
     month: 'June',
-    locationName: 'Bakalia area',
-    locationArea: 'Chattogram',
+    locationName: 'বাকলিয়া (Bakalia)',
+    locationArea: 'চট্টগ্রাম (Chattogram)',
     factTag: 'fictional',
     getSetupText: () =>
       "Reshma spreads a transit map of Chattogram's Bakalia district across the table. 'Why funnel every single consignment through Dhaka when Bakalia can stand on its own?' she asks. 'You calculate risk, Rafiq. I calculate opportunity.' She waits to see if he treats her as a genuine partner or merely as hired labor.",
     choices: [
       {
         key: 'A',
-        label: 'Approve it',
+        label: 'প্রস্তাবে অনুমোদন দেওয়া (Approve it)',
         execute: (state) => {
           const highLoyalty = state.stats.loyalty >= 50;
           if (highLoyalty) {
@@ -1044,7 +1044,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Deny it and keep operations central',
+        label: 'প্রস্তাব নাকচ করা (Deny it)',
         resultText: 'Reshma nods and starts counting how long she will wait.',
         execute: (state) => ({
           state: {
@@ -1066,7 +1066,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 4,
     year: '2020',
     month: 'February',
-    locationName: 'Jatrabari warehouse',
+    locationName: 'যাত্রাবাড়ী ওয়্যারহাউজ (Jatrabari warehouse)',
     locationArea: 'Jatrabari, Dhaka',
     factTag: 'real',
     tickerId: 'T-07',
@@ -1076,7 +1076,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Pay the bigger cut',
+        label: 'শুভর বড় ভাগ মেনে নেওয়া (Pay the bigger cut)',
         resultText: 'Shuvo says the number is fair. Rafiq knows what fair means.',
         execute: (state) => {
           const cutPct = state.flags.informedOnShuvo ? 0.4 : 0.2;
@@ -1100,7 +1100,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Refuse and prepare for conflict',
+        label: 'প্রস্তাব প্রত্যাখ্যান ও সংঘাতের প্রস্তুতি (Refuse & prepare for conflict)',
         resultText: 'The lanes go quiet in the way that comes before something.',
         execute: (state) => {
           // Rule: Apply Heat first, then defection check, then Money
@@ -1137,7 +1137,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Broker peace with a payment to Haque, so both sides are protected',
+        label: 'দারোগা হককে দিয়ে শুভর সাথে সমঝোতা (Broker peace with Haque)',
         resultText: 'Haque takes it and calls it a favour.',
         isAvailable: (state) => {
           const price = state.flags.haqueOwnsYou ? 15000 : 10000;
@@ -1178,8 +1178,8 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 4,
     year: '2020',
     month: 'March',
-    locationName: 'Geneva Camp area',
-    locationArea: 'Mohammadpur and Mirpur lanes',
+    locationName: 'জেনেভা ক্যাম্প ও মিরপুর (Geneva Camp & Mirpur)',
+    locationArea: 'মোহাম্মদপুর ও মিরপুরের গলি (Mohammadpur & Mirpur)',
     factTag: 'real',
     tickerId: 'T-08',
     archiveIds: ['A-11'],
@@ -1188,7 +1188,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Expand while the police are busy',
+        label: 'পুলিশের ব্যস্ততার সুযোগে বিস্তার (Expand while police busy)',
         resultText: 'The lanes are loud again.',
         execute: (state) => {
           const gain = state.flags.trade === 'yaba' ? 8000 : 3000;
@@ -1209,7 +1209,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Stay quiet and protect the crew',
+        label: 'চুপচাপ থেকে নিজেদের লোক বাঁচানো (Stay quiet & protect crew)',
         resultText: 'A quiet month is not a bad month.',
         execute: (state) => ({
           state: {
@@ -1227,7 +1227,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: "Share earnings with families in the lane, Noyon's idea",
+        label: 'নয়নের পরামর্শে পাড়ার পরিবারগুলোকে সাহায্য (Share earnings with lane)',
         resultText: 'Noyon carries the bags himself and will not take thanks.',
         isAvailable: (state) => ({
           available: state.stats.money >= 3000,
@@ -1259,7 +1259,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 4,
     year: '2020',
     month: 'August',
-    locationName: 'Jatrabari warehouse',
+    locationName: 'যাত্রাবাড়ী ওয়্যারহাউজ (Jatrabari warehouse)',
     locationArea: 'Jatrabari, Dhaka',
     factTag: 'real',
     tickerId: 'T-09',
@@ -1269,7 +1269,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Let Kalam handle it',
+        label: 'কালামকে নিজের মতো সাইজ করতে দেওয়া (Let Kalam handle it)',
         resultText: 'Nobody skims after that. Nobody looks Rafiq in the eye either.',
         execute: (state) => ({
           state: {
@@ -1291,7 +1291,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Handle it yourself with a warning',
+        label: 'সতর্ক করে নিজেই সামলানো (Handle with warning)',
         resultText: 'The dealer stays, and stays afraid.',
         execute: (state) => ({
           state,
@@ -1301,7 +1301,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Let it go',
+        label: 'ছেড়ে দেওয়া (Let it go)',
         resultText: 'The money keeps leaking. The crew notices.',
         execute: (state) => ({
           state: {
@@ -1323,7 +1323,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     id: 'S4-6',
     stage: 4,
     year: '2021 to 2022',
-    locationName: 'Karwan Bazar and Sadarghat backdrops',
+    locationName: 'কারওয়ান বাজার ও সদরঘাট (Karwan Bazar & Sadarghat)',
     locationArea: 'Dhaka',
     factTag: 'fictional',
     getSetupText: () =>
@@ -1331,7 +1331,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Push for total control of the routes',
+        label: 'হাইওয়ে রুটের পূর্ণ নিয়ন্ত্রণ নেওয়া (Push for total control)',
         resultText: 'Every lane answers to him now. None of them like it.',
         execute: (state) => {
           const gain = state.flags.trade === 'yaba' ? 30000 : 10000;
@@ -1346,12 +1346,12 @@ export const SCENES: Record<string, SceneDefinition> = {
                 : 'Weed distribution across major Dhaka hubs generates consistent income.',
             nextSceneId: 'S5-1',
             metrics: [
-              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
-              { label: 'SUPPLIERS', value: '3 HIGHWAY DEPOTS', statusClass: 'neutral' },
-              { label: 'CREW', value: '17 ACTIVE RUNNERS', statusClass: 'neutral' },
-              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'EXPANDING', statusClass: state.flags.reshmaDefected ? 'danger' : 'warning' },
-              { label: 'NOYON', value: 'DISTANT (SILENT)', statusClass: 'warning' },
-              { label: 'KALAM', value: 'USEFUL', statusClass: 'danger' },
+              { label: 'হাতে নগদ (Cash)', value: '৳██████', statusClass: 'redacted' },
+              { label: 'ডিপো (Suppliers)', value: '৩টি হাইওয়ে হাব (3 HIGHWAY DEPOTS)', statusClass: 'neutral' },
+              { label: 'লাইনম্যান (Crew)', value: '১৭ জন সক্রিয় রিক্রুট (17 ACTIVE RUNNERS)', statusClass: 'neutral' },
+              { label: 'রেশমা (Reshma)', value: state.flags.reshmaDefected ? 'পালিয়ে গেছে (DEFECTED)' : 'বিস্তার করতেছে (EXPANDING)', statusClass: state.flags.reshmaDefected ? 'danger' : 'warning' },
+              { label: 'নয়ন (Noyon)', value: 'দূরত্ব / নিস্তব্ধ (DISTANT / SILENT)', statusClass: 'warning' },
+              { label: 'কালাম (Kalam)', value: 'কাজে লাগানো হচ্ছে (USEFUL)', statusClass: 'danger' },
             ],
           };
           return {
@@ -1375,7 +1375,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Move quietly into legitimate shop fronts',
+        label: 'দোকান দিয়ে বৈধ ব্যবসার আড়ালে যাওয়া (Move quietly into legitimate shop fronts)',
         resultText: 'A ledger with clean pages, for the first time.',
         execute: (state) => {
           const ledgerAmount = state.flags.trade === 'yaba' ? 45000 : 15000;
@@ -1389,12 +1389,12 @@ export const SCENES: Record<string, SceneDefinition> = {
                 : 'Weed distribution across major Dhaka hubs generates consistent income.',
             nextSceneId: 'S5-1',
             metrics: [
-              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
-              { label: 'SUPPLIERS', value: 'DISGUISED THROUGH FRONTS', statusClass: 'safe' },
-              { label: 'CREW', value: '17 ACTIVE RUNNERS', statusClass: 'neutral' },
-              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'MANAGING STORES', statusClass: 'neutral' },
-              { label: 'NOYON', value: 'DISTANT', statusClass: 'warning' },
-              { label: 'KALAM', value: 'RESTRAINED', statusClass: 'safe' },
+              { label: 'হাতে নগদ (Cash)', value: '৳██████', statusClass: 'redacted' },
+              { label: 'ডিপো (Suppliers)', value: 'বৈধ দোকানের আড়ালে (DISGUISED THROUGH FRONTS)', statusClass: 'safe' },
+              { label: 'লাইনম্যান (Crew)', value: '১৭ জন সক্রিয় রিক্রুট (17 ACTIVE RUNNERS)', statusClass: 'neutral' },
+              { label: 'রেশমা (Reshma)', value: state.flags.reshmaDefected ? 'পালিয়ে গেছে (DEFECTED)' : 'দোকান সামলাচ্ছে (MANAGING STORES)', statusClass: 'neutral' },
+              { label: 'নয়ন (Noyon)', value: 'দূরত্ব (DISTANT)', statusClass: 'warning' },
+              { label: 'কালাম (Kalam)', value: 'নিয়ন্ত্রিত (RESTRAINED)', statusClass: 'safe' },
             ],
           };
           return {
@@ -1419,7 +1419,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Hold the balance',
+        label: 'ভারসাম্য ধরে রাখা (Hold the balance)',
         resultText: 'Nothing changes, and he knows that is a choice too.',
         execute: (state) => {
           const ledgerAmount = state.flags.trade === 'yaba' ? 45000 : 15000;
@@ -1433,12 +1433,12 @@ export const SCENES: Record<string, SceneDefinition> = {
                 : 'Weed distribution across major Dhaka hubs generates consistent income.',
             nextSceneId: 'S5-1',
             metrics: [
-              { label: 'CASH', value: '৳██████', statusClass: 'redacted' },
-              { label: 'SUPPLIERS', value: 'UNSTABLE', statusClass: 'warning' },
-              { label: 'CREW', value: '17 RUNNERS', statusClass: 'neutral' },
-              { label: 'RESHMA', value: state.flags.reshmaDefected ? 'DEFECTED' : 'RESTLESS', statusClass: 'warning' },
-              { label: 'NOYON', value: 'TIRED', statusClass: 'warning' },
-              { label: 'KALAM', value: 'WATCHING', statusClass: 'danger' },
+              { label: 'হাতে নগদ (Cash)', value: '৳██████', statusClass: 'redacted' },
+              { label: 'ডিপো (Suppliers)', value: 'অস্থির সরবরাহ (UNSTABLE)', statusClass: 'warning' },
+              { label: 'লাইনম্যান (Crew)', value: '১৭ জন রিক্রুট (17 RUNNERS)', statusClass: 'neutral' },
+              { label: 'রেশমা (Reshma)', value: state.flags.reshmaDefected ? 'পালিয়ে গেছে (DEFECTED)' : 'অস্থির (RESTLESS)', statusClass: 'warning' },
+              { label: 'নয়ন (Noyon)', value: 'ক্লান্ত (TIRED)', statusClass: 'warning' },
+              { label: 'কালাম (Kalam)', value: 'নজর রাখছে (WATCHING)', statusClass: 'danger' },
             ],
           };
           return {
@@ -1464,7 +1464,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 5,
     year: '2024',
     month: 'September',
-    locationName: 'Karwan Bazar and Sadarghat',
+    locationName: 'কারওয়ান বাজার ও সদরঘাট (Karwan Bazar & Sadarghat)',
     locationArea: 'Dhaka',
     factTag: 'real',
     tickerId: 'T-10',
@@ -1474,7 +1474,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Move more volume',
+        label: 'বেশি মাল বাজারে নামানো (Move more volume)',
         resultText: 'The streets are quiet. Rafiq fills the quiet.',
         execute: (state) => {
           const gain = state.flags.trade === 'yaba' ? 10000 : 4000;
@@ -1496,7 +1496,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Stay put',
+        label: 'চুপচাপ পর্যবেক্ষণ করা (Stay put)',
         resultText: 'He lets the opening pass. It feels like cowardice and like sense.',
         execute: (state) => ({
           state: {
@@ -1512,7 +1512,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Pay Haque for information',
+        label: 'দারোগা হককে খবরের জন্য টাকা দেওয়া (Pay Haque for intel)',
         resultText: 'Haque talks for ten minutes and sounds tired.',
         isAvailable: (state) => {
           const price = state.flags.haqueOwnsYou ? 4500 : 3000;
@@ -1544,7 +1544,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     id: 'S5-2',
     stage: 5,
     year: '2025',
-    locationName: 'Jatrabari warehouse',
+    locationName: 'যাত্রাবাড়ী ওয়্যারহাউজ (Jatrabari warehouse)',
     locationArea: 'Jatrabari, Dhaka',
     factTag: 'real',
     tickerId: 'T-11',
@@ -1554,7 +1554,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Send him home, pay his family and cut that seller off',
+        label: 'বাচ্চাটারে ঘরে পাঠাইয়া ওই বিক্রেতারে কাট করা (Send child home, pay family, cut seller)',
         resultText: 'The seller is furious. Noyon exhales for the first time in an hour.',
         isAvailable: (state) => ({
           available: state.stats.money >= 5000,
@@ -1580,7 +1580,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Say nothing and keep the seller',
+        label: 'কিছু না বলে বিক্রেতারে রেখে দেওয়া (Say nothing and keep seller)',
         resultText: 'Nobody argues. That is the problem.',
         execute: (state) => ({
           state: {
@@ -1598,7 +1598,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Leave it to the lieutenants',
+        label: 'কালাম আর নয়নের ওপর ছেড়ে দেওয়া (Leave it to lieutenants)',
         resultText: 'Rafiq tells himself he is delegating.',
         execute: (state) => ({
           state: {
@@ -1621,8 +1621,8 @@ export const SCENES: Record<string, SceneDefinition> = {
     stage: 5,
     year: '2025',
     month: 'November',
-    locationName: 'Rented room near Shah Amanat Bridge',
-    locationArea: 'Chattogram',
+    locationName: 'শাহ আমানত সেতু সংলগ্ন ভাড়া ঘর (Room near Shah Amanat Bridge)',
+    locationArea: 'চট্টগ্রাম (Chattogram)',
     factTag: 'real',
     tickerId: 'T-12',
     getSetupText: () =>
@@ -1630,7 +1630,7 @@ export const SCENES: Record<string, SceneDefinition> = {
     choices: [
       {
         key: 'A',
-        label: 'Walk into the thana and surrender',
+        label: 'থানায় গিয়ে আত্মসমর্পণ করা (Walk into thana and surrender)',
         resultText: 'He leaves the bag by the door and goes out the back, towards the police.',
         execute: (state) => ({
           state: {
@@ -1651,7 +1651,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'B',
-        label: 'Pay for a way out and disappear',
+        label: 'টাকা দিয়ে নতুন নামে পালিয়ে যাওয়া (Pay for a way out and disappear)',
         resultText: 'The money buys a road and a name that is not his.',
         isAvailable: (state) => ({
           available: state.stats.money >= 20000,
@@ -1678,7 +1678,7 @@ export const SCENES: Record<string, SceneDefinition> = {
       },
       {
         key: 'C',
-        label: 'Keep going',
+        label: 'সামনে এগিয়ে যাওয়া (Keep going)',
         resultText: 'He opens the door.',
         execute: (state) => ({
           state: {

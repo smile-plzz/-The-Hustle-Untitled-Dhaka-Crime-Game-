@@ -90,14 +90,14 @@ export const SaveLoadModal: React.FC<SaveLoadModalProps> = ({
               className={`save-tab ${activeTab === 'save' ? 'active' : ''}`}
             >
               <Save size={16} />
-              <span>Save Progress</span>
+              <span>সেভ করুন (Save Progress)</span>
             </button>
             <button
               onClick={() => setActiveTab('load')}
               className={`save-tab ${activeTab === 'load' ? 'active' : ''}`}
             >
               <FolderOpen size={16} />
-              <span>Load Game</span>
+              <span>লোড করুন (Load Game)</span>
             </button>
           </div>
 
@@ -126,7 +126,7 @@ export const SaveLoadModal: React.FC<SaveLoadModalProps> = ({
                 }
               }}
             >
-              <div className="slot-number">Slot {idx + 1}</div>
+              <div className="slot-number">স্লট {idx + 1} (Slot {idx + 1})</div>
 
               {slot ? (
                 <div className="slot-info">
@@ -139,7 +139,7 @@ export const SaveLoadModal: React.FC<SaveLoadModalProps> = ({
                 </div>
               ) : (
                 <div className="slot-empty-text">
-                  {activeTab === 'save' ? 'Click to Save' : 'Empty Slot'}
+                  {activeTab === 'save' ? 'সেভ করতে ক্লিক করুন (Click to Save)' : 'খালি স্লট (Empty Slot)'}
                 </div>
               )}
 

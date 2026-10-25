@@ -78,3 +78,23 @@
   - Directorial rules for writing aggressive, emotional, and romantic scenes.
 - Updated `context.md` to reference `AGENTS_PROMPT_GUIDE.md`.
 - Staged, committed, and pushed changes to remote `origin/main`.
+
+## [2026-10-25 15:28:00] Bilingual Bengali Integration Across Entire Experience
+- Incorporated authentic Bengali and bilingual elements across every layer of the game while preserving deterministic stat engine compatibility:
+  - **News Wires (`archiveData.ts`)**: Translated all 12 ticker items (T-01 to T-12) into authentic Bangla news bulletins covering the Rana Plaza disaster, border drug raids, 2018 anti-drug drives, COVID lockdowns, and the August 2024 political shift.
+  - **Stage Cards & Scene Locations (`storyData.ts`)**: Updated all 5 Era Banners, location titles, and area markers to bilingual Dhaka locations (e.g. `যাত্রাবাড়ী ওয়্যারহাউজ`, `রেললাইন চা স্টল`, `ঝিলপাড় বস্তি ও ফাঁড়ি`, `বাকলিয়া, চট্টগ্রাম`, `কারওয়ান বাজার ও সদরঘাট`).
+  - **Choice Prompts (`storyData.ts`)**: All choice actions across Stages 1–5 now feature evocative Bengali action labels alongside clear parenthetical English translations (e.g. `ফেনসিডিলও টানতে রাজি হওয়া (Carry the syrup)`, `দারোগা হককে ২,০০০ টাকা ঘুষ দেওয়া (Offer 2,000 Tk bribe)`, `বাচ্চাটারে ঘরে পাঠাইয়া ওই বিক্রেতারে কাট করা (Send child home, pay family, cut seller)`).
+  - **Psychological Ledger (Lal Khata) Metrics**: Converted inter-stage financial ledger items into traditional Bengali account book categories (`চিকিৎসা ঋণ`, `হাতে নগদ`, `ডিপো`, `লাইনম্যান`, `আমেনা: মুখ বন্ধ / ফ্রিজ চলছে`, `দারোগা হক`).
+  - **HUD & Navigation Header (`Header.tsx`)**: Re-labeled stats and nav buttons to bilingual text (`টাকা (MONEY)`, `আনুগত্য (LOYALTY)`, `নজরদারি (HEAT)`, `নৈতিকতা (MORALITY)`, `দলবল (CREW)`, `ঘটনাক্রম`, `সম্পর্ক`, `আর্কাইভ`).
+  - **Scene Metadata & History (`ScenePlayer.tsx`)**: Fact tags updated to `বাস্তব ঘটনা (Real Events)` / `কাল্পনিক (Fictional)`; history drawer button updated to `ইতিহাস কী বলে? (What's the history?)`.
+  - **Ending Resolution Screen (`EndingScreen.tsx`)**: The 5 core endings and variants now display bilingual badges:
+    - `Redemption` -> `মুক্তি ও প্রায়শ্চিত্ত (REDEMPTION)`
+    - `The Untouchable Kingpin` -> `অস্পৃশ্য মহাজন (THE UNTOUCHABLE KINGPIN)`
+    - `Caught` -> `গ্রেফতার ও কারাদণ্ড (CAUGHT)`
+    - `Killed in the Turf War` -> `যাত্রাবাড়ীর গলিতে লাশ (KILLED IN TURF WAR)`
+    - `Ghost` -> `অদৃশ্য কুয়াশা (GHOST)`
+    - Variants: `আত্মসমর্পণ (SURRENDERED)`, `পলাতক (FLED)`, `বিশ্বাসঘাতকতা (BETRAYED)`.
+  - **Pause Menu & Save/Load (`PauseMenu.tsx`, `SaveLoadModal.tsx`)**: Full bilingual support for menu actions, save slots, audio toggles, and CRT scanlines.
+- Build & Test Verification:
+  - Vitest test suite (`npm test`): 7/7 reference playthroughs passed with 100% exact parity.
+  - Production build (`npm run build`): Generated clean bundle in `dist/`.

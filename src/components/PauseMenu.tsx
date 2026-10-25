@@ -52,8 +52,8 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
       <div className="pause-menu-card" onClick={(e) => e.stopPropagation()}>
         <header className="pause-header">
           <div>
-            <h2 className="pause-title">PAUSED</h2>
-            <p className="pause-subtitle">The Hustle: Dhaka Crime & Social Realism</p>
+            <h2 className="pause-title">বিরতি (PAUSED)</h2>
+            <p className="pause-subtitle">দ্যা হাসল: ঢাকা ক্রাইম ও সোশাল রিয়ালিজম</p>
           </div>
           <button onClick={onClose} className="btn-close-overlay" title="Resume">
             <X size={20} />
@@ -63,37 +63,37 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
         <nav className="pause-nav-list">
           <button onClick={onClose} className="pause-btn pause-btn-primary">
             <Play size={18} />
-            <span>Resume Game</span>
+            <span>খেলা চালিয়ে যান (Resume Game)</span>
           </button>
 
           <button onClick={onOpenSaveLoad} className="pause-btn">
             <Save size={18} />
-            <span>Save / Load Game</span>
+            <span>সেভ ও লোড (Save / Load Game)</span>
           </button>
 
           <button onClick={onOpenArchive} className="pause-btn">
             <BookOpen size={18} />
-            <span>Historical Archive</span>
+            <span>দলিল সংরক্ষণাগার (Historical Archive)</span>
           </button>
 
           <button onClick={onOpenTimeline} className="pause-btn">
             <Clock size={18} />
-            <span>2013–2025 Dual Timeline</span>
+            <span>ঘটনাক্রম ২০১৩–২০২৫ (Dual Timeline)</span>
           </button>
 
           <button onClick={onOpenRelationships} className="pause-btn">
             <Users size={18} />
-            <span>Relationships & Moral Memory</span>
+            <span>সম্পর্কের গতিপথ (Relationships & Memory)</span>
           </button>
 
           <button onClick={onOpenSources} className="pause-btn">
             <FileText size={18} />
-            <span>Documentary Sources (29 Citations)</span>
+            <span>ঐতিহাসিক তথ্যসূত্র (Documentary Sources)</span>
           </button>
 
           <button onClick={onOpenHelp} className="pause-btn">
             <HeartHandshake size={18} />
-            <span>Support & Treatment Services</span>
+            <span>সাহায্য ও চিকিৎসা সেবা (Support Services)</span>
           </button>
 
           <div className="pause-divider" />
@@ -106,7 +106,7 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
               title="Toggle monsoon rain ambience"
             >
               {isAudioActive ? <Volume2 size={16} /> : <VolumeX size={16} />}
-              <span>{isAudioActive ? 'Rain Ambience: ON' : 'Rain Ambience: OFF'}</span>
+              <span>{isAudioActive ? 'বৃষ্টির শব্দ: চালু (Rain: ON)' : 'বৃষ্টির শব্দ: বন্ধ (Rain: OFF)'}</span>
             </button>
 
             <button
@@ -115,7 +115,7 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
               title="Toggle retro CRT scanlines"
             >
               <Tv size={16} />
-              <span>{scanlinesActive ? 'CRT Scanlines: ON' : 'CRT Scanlines: OFF'}</span>
+              <span>{scanlinesActive ? 'সিআরটি ইফেক্ট: চালু (CRT: ON)' : 'সিআরটি ইফেক্ট: বন্ধ (CRT: OFF)'}</span>
             </button>
           </div>
 
@@ -123,7 +123,7 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
 
           <button
             onClick={() => {
-              if (window.confirm('Restart game from Stage 1? Any unsaved progress will be lost.')) {
+              if (window.confirm('প্রথম ধাপ থেকে পুনরায় শুরু করবেন? (Restart game from Stage 1?)')) {
                 onRestart();
                 onClose();
               }
@@ -131,7 +131,7 @@ export const PauseMenu: React.FC<PauseMenuProps> = ({
             className="pause-btn pause-btn-danger"
           >
             <RotateCcw size={18} />
-            <span>Restart Playthrough</span>
+            <span>নতুন করে শুরু করুন (Restart Playthrough)</span>
           </button>
         </nav>
       </div>
